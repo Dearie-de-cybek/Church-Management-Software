@@ -43,7 +43,7 @@
   <header id="header" class="header fixed-top d-flex align-items-center">
 
     <div class="d-flex align-items-center justify-content-between">
-      <a href="index.html" class="logo d-flex align-items-center">
+      <a href="{{ route('dashboard') }}" class="logo d-flex align-items-center">
         <img src="{{asset('assets/img/logo.png')}}" alt="">
         <span class="d-none d-lg-block">NiceAdmin</span>
       </a>
@@ -225,7 +225,7 @@
             </li>
 
             <li>
-              <a class="dropdown-item d-flex align-items-center" href="users-profile.html">
+              <a class="dropdown-item d-flex align-items-center" href="">
                 <i class="bi bi-person"></i>
                 <span>My Profile</span>
               </a>
@@ -235,7 +235,7 @@
             </li>
 
             <li>
-              <a class="dropdown-item d-flex align-items-center" href="users-profile.html">
+              <a class="dropdown-item d-flex align-items-center" href="">
                 <i class="bi bi-gear"></i>
                 <span>Account Settings</span>
               </a>
@@ -245,7 +245,7 @@
             </li>
 
             <li>
-              <a class="dropdown-item d-flex align-items-center" href="pages-faq.html">
+              <a class="dropdown-item d-flex align-items-center" href="">
                 <i class="bi bi-question-circle"></i>
                 <span>Need Help?</span>
               </a>
@@ -275,7 +275,7 @@
     <ul class="sidebar-nav" id="sidebar-nav">
 
       <li class="nav-item">
-        <a class="nav-link " href="index.html">
+        <a class="nav-link " href="{{ route('dashboard') }}">
           <i class="bi bi-grid"></i>
           <span>Dashboard</span>
         </a>
@@ -287,72 +287,72 @@
         </a>
         <ul id="components-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
           <li>
-            <a href="components-alerts.html">
+            <a href="">
               <i class="bi bi-circle"></i><span>Alerts</span>
             </a>
           </li>
           <li>
-            <a href="components-accordion.html">
+            <a href="">
               <i class="bi bi-circle"></i><span>Accordion</span>
             </a>
           </li>
           <li>
-            <a href="components-badges.html">
+            <a href="">
               <i class="bi bi-circle"></i><span>Badges</span>
             </a>
           </li>
           <li>
-            <a href="components-breadcrumbs.html">
+            <a href="">
               <i class="bi bi-circle"></i><span>Breadcrumbs</span>
             </a>
           </li>
           <li>
-            <a href="components-buttons.html">
+            <a href="">
               <i class="bi bi-circle"></i><span>Buttons</span>
             </a>
           </li>
           <li>
-            <a href="components-cards.html">
+            <a href="">
               <i class="bi bi-circle"></i><span>Cards</span>
             </a>
           </li>
           <li>
-            <a href="components-carousel.html">
+            <a href="">
               <i class="bi bi-circle"></i><span>Carousel</span>
             </a>
           </li>
           <li>
-            <a href="components-list-group.html">
+            <a href="">
               <i class="bi bi-circle"></i><span>List group</span>
             </a>
           </li>
           <li>
-            <a href="components-modal.html">
+            <a href="">
               <i class="bi bi-circle"></i><span>Modal</span>
             </a>
           </li>
           <li>
-            <a href="components-tabs.html">
+            <a href="">
               <i class="bi bi-circle"></i><span>Tabs</span>
             </a>
           </li>
           <li>
-            <a href="components-pagination.html">
+            <a href="">
               <i class="bi bi-circle"></i><span>Pagination</span>
             </a>
           </li>
           <li>
-            <a href="components-progress.html">
+            <a href="">
               <i class="bi bi-circle"></i><span>Progress</span>
             </a>
           </li>
           <li>
-            <a href="components-spinners.html">
+            <a href="">
               <i class="bi bi-circle"></i><span>Spinners</span>
             </a>
           </li>
           <li>
-            <a href="components-tooltips.html">
+            <a href="">
               <i class="bi bi-circle"></i><span>Tooltips</span>
             </a>
           </li>
@@ -365,22 +365,22 @@
         </a>
         <ul id="forms-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
           <li>
-            <a href="forms-elements.html">
+            <a href="">
               <i class="bi bi-circle"></i><span>Form Elements</span>
             </a>
           </li>
           <li>
-            <a href="forms-layouts.html">
+            <a href="">
               <i class="bi bi-circle"></i><span>Form Layouts</span>
             </a>
           </li>
           <li>
-            <a href="forms-editors.html">
+            <a href="">
               <i class="bi bi-circle"></i><span>Form Editors</span>
             </a>
           </li>
           <li>
-            <a href="forms-validation.html">
+            <a href="">
               <i class="bi bi-circle"></i><span>Form Validation</span>
             </a>
           </li>
@@ -393,12 +393,12 @@
         </a>
         <ul id="tables-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
           <li>
-            <a href="tables-general.html">
+            <a href="">
               <i class="bi bi-circle"></i><span>General Tables</span>
             </a>
           </li>
           <li>
-            <a href="tables-data.html">
+            <a href="">
               <i class="bi bi-circle"></i><span>Data Tables</span>
             </a>
           </li>
@@ -411,17 +411,17 @@
         </a>
         <ul id="charts-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
           <li>
-            <a href="charts-chartjs.html">
+            <a href="">
               <i class="bi bi-circle"></i><span>Chart.js</span>
             </a>
           </li>
           <li>
-            <a href="charts-apexcharts.html">
+            <a href="">
               <i class="bi bi-circle"></i><span>ApexCharts</span>
             </a>
           </li>
           <li>
-            <a href="charts-echarts.html">
+            <a href="">
               <i class="bi bi-circle"></i><span>ECharts</span>
             </a>
           </li>
@@ -434,17 +434,17 @@
         </a>
         <ul id="icons-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
           <li>
-            <a href="icons-bootstrap.html">
+            <a href="">
               <i class="bi bi-circle"></i><span>Bootstrap Icons</span>
             </a>
           </li>
           <li>
-            <a href="icons-remix.html">
+            <a href="">
               <i class="bi bi-circle"></i><span>Remix Icons</span>
             </a>
           </li>
           <li>
-            <a href="icons-boxicons.html">
+            <a href="">
               <i class="bi bi-circle"></i><span>Boxicons</span>
             </a>
           </li>
@@ -454,49 +454,49 @@
       <li class="nav-heading">Pages</li>
 
       <li class="nav-item">
-        <a class="nav-link collapsed" href="users-profile.html">
+        <a class="nav-link collapsed" href="">
           <i class="bi bi-person"></i>
           <span>Profile</span>
         </a>
       </li><!-- End Profile Page Nav -->
 
       <li class="nav-item">
-        <a class="nav-link collapsed" href="pages-faq.html">
+        <a class="nav-link collapsed" href="">
           <i class="bi bi-question-circle"></i>
           <span>F.A.Q</span>
         </a>
       </li><!-- End F.A.Q Page Nav -->
 
       <li class="nav-item">
-        <a class="nav-link collapsed" href="pages-contact.html">
+        <a class="nav-link collapsed" href="">
           <i class="bi bi-envelope"></i>
           <span>Contact</span>
         </a>
       </li><!-- End Contact Page Nav -->
 
       <li class="nav-item">
-        <a class="nav-link collapsed" href="pages-register.html">
+        <a class="nav-link collapsed" href="">
           <i class="bi bi-card-list"></i>
           <span>Register</span>
         </a>
       </li><!-- End Register Page Nav -->
 
       <li class="nav-item">
-        <a class="nav-link collapsed" href="pages-login.html">
+        <a class="nav-link collapsed" href="">
           <i class="bi bi-box-arrow-in-right"></i>
           <span>Login</span>
         </a>
       </li><!-- End Login Page Nav -->
 
       <li class="nav-item">
-        <a class="nav-link collapsed" href="pages-error-404.html">
+        <a class="nav-link collapsed" href="">
           <i class="bi bi-dash-circle"></i>
           <span>Error 404</span>
         </a>
       </li><!-- End Error 404 Page Nav -->
 
       <li class="nav-item">
-        <a class="nav-link collapsed" href="pages-blank.html">
+        <a class="nav-link collapsed" href="">
           <i class="bi bi-file-earmark"></i>
           <span>Blank</span>
         </a>
@@ -512,7 +512,7 @@
       <h1>Dashboard</h1>
       <nav>
         <ol class="breadcrumb">
-          <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+          <li class="breadcrumb-item"><a href="{{ route('dashboard') }}">Home</a></li>
           <li class="breadcrumb-item active">Dashboard</li>
         </ol>
       </nav>
@@ -533,7 +533,7 @@
       <!-- You can delete the links only if you purchased the pro version. -->
       <!-- Licensing information: https://bootstrapmade.com/license/ -->
       <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/nice-admin-bootstrap-admin-html-template/ -->
-      Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+      {{-- Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a> --}}
     </div>
   </footer><!-- End Footer -->
 
