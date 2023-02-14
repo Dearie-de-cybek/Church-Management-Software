@@ -18,6 +18,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::name('dashboard.')->prefix('dashboard')->group(function() {
+Route::name('dashboard')->prefix('dashboard')->group(function() {
     Route::get('', [DashboardController::class, 'index']);
 });
