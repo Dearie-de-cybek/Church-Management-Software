@@ -9,6 +9,26 @@
   <meta content="" name="description">
   <meta content="" name="keywords">
 
+  {{-- ----------------- datatable ------------------ --}}
+  {{-- <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+  <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+  <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script language="JavaScript" src="https://code.jquery.com/jquery-1.11.1.min.js" type="text/javascript"></script>
+  <script language="JavaScript" src="https://cdn.datatables.net/1.10.4/js/jquery.dataTables.min.js"
+      type="text/javascript"></script>
+  <script language="JavaScript"
+      src="https://cdn.datatables.net/plug-ins/3cfcc339e89/integration/bootstrap/3/dataTables.bootstrap.js"
+      type="text/javascript"></script>
+  <link rel="stylesheet" type="text/css" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css"
+      href="http://cdn.datatables.net/plug-ins/3cfcc339e89/integration/bootstrap/3/dataTables.bootstrap.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+  <link href="{{ asset('assets/css/table.css') }}" rel="stylesheet">
+  <link href="{{ asset('assets/css/core.css') }}" rel="stylesheet"> --}}
+
+  {{-- ----------------- datatable ------------------ --}}
+
   <!-- Favicons -->
   <link href="{{asset('assets/img/logo.svg')}}" rel="icon">
   <link href="{{asset('assets/img/logo.svg')}}" rel="apple-touch-icon">
@@ -450,6 +470,10 @@
   <!-- Template Main JS File -->
   <script src="{{asset('assets/js/main.js')}}"></script>
 
+  {{-- datatable --}}
+  {{-- <script src="{{ asset('assets/js/table.js') }}"></script>
+    <script src="{{ asset('assets/js/bootstrap.js') }}"></script> --}}
+  {{-- datatable --}}
 </body>
 
 </html> 
