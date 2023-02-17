@@ -21,5 +21,5 @@ Route::get('/', function () {
 
 Route::name('dashboard')->prefix('dashboard')->group(function() {
     Route::get('', [DashboardController::class, 'index']);
-    Route::get('/approved{id}', [PaymentController::class, ''] );
+    Route::get('/approved{id}', [PaymentController::class, 'approved'] );
 });
