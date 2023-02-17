@@ -1,8 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Dashboard\DashboardController;
 use App\Http\Controllers\PaymentController;
+use App\Http\Controllers\Dashboard\DashboardController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,7 +19,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::name('dashboard')->prefix('dashboard')->group(function() {
-    Route::get('', [DashboardController::class, 'index']);
-    Route::get('/approved{id}', [PaymentController::class, 'approved'] );
+Route::name('dashboard.')->prefix('dashboard')->group(function() {
+    Route::get('', [DashboardController::class, 'index'])->name('dashboard');
+    Route::get('approve/{id}', [PaymentController::class, 'approve'] )->name('approve');
+    Route::get('decline/{id}', [PaymentController::class, 'decline'] )->name('decline');
 });

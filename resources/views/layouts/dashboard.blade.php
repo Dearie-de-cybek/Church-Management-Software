@@ -9,25 +9,18 @@
   <meta content="" name="description">
   <meta content="" name="keywords">
 
-  {{-- ----------------- datatable ------------------ --}}
-  {{-- <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-  <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
-  <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <script language="JavaScript" src="https://code.jquery.com/jquery-1.11.1.min.js" type="text/javascript"></script>
-  <script language="JavaScript" src="https://cdn.datatables.net/1.10.4/js/jquery.dataTables.min.js"
-      type="text/javascript"></script>
-  <script language="JavaScript"
-      src="https://cdn.datatables.net/plug-ins/3cfcc339e89/integration/bootstrap/3/dataTables.bootstrap.js"
-      type="text/javascript"></script>
-  <link rel="stylesheet" type="text/css" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-  <link rel="stylesheet" type="text/css"
-      href="http://cdn.datatables.net/plug-ins/3cfcc339e89/integration/bootstrap/3/dataTables.bootstrap.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
-  <link href="{{ asset('assets/css/table.css') }}" rel="stylesheet">
-  <link href="{{ asset('assets/css/core.css') }}" rel="stylesheet"> --}}
+  {{-- Datatable --}}
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.10.24/css/dataTables.bootstrap4.min.css">
 
-  {{-- ----------------- datatable ------------------ --}}
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+
+  <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+  <script src="https://cdn.datatables.net/1.10.23/js/jquery.dataTables.min.js"></script>
+
+
+  {{-- datatable --}}
 
   <!-- Favicons -->
   <link href="{{asset('assets/img/logo.svg')}}" rel="icon">
@@ -63,7 +56,7 @@
   <header id="header" class="header fixed-top d-flex align-items-center">
 
     <div class="d-flex align-items-center justify-content-between">
-      <a href="{{ route('dashboard') }}" class="logo d-flex align-items-center">
+      <a href="{{ route('dashboard.dashboard') }}" class="logo d-flex align-items-center">
         <img src="{{asset('assets/img/logo.svg')}}" alt="">
         <span class="d-none d-lg-block">WorshipArcade</span>
       </a>
@@ -291,7 +284,7 @@
     <ul class="sidebar-nav" id="sidebar-nav">
 
       <li class="nav-item">
-        <a class="nav-link " href="{{ route('dashboard') }}">
+        <a class="nav-link " href="{{ route('dashboard.dashboard') }}">
           <i class="bi bi-grid"></i>
           <span>Dashboard</span>
         </a>
@@ -430,7 +423,7 @@
       <h1>Dashboard</h1>
       <nav>
         <ol class="breadcrumb">
-          <li class="breadcrumb-item"><a href="{{ route('dashboard') }}">Home</a></li>
+          <li class="breadcrumb-item"><a href="{{ route('dashboard.dashboard') }}">Home</a></li>
           <li class="breadcrumb-item active">Dashboard</li>
         </ol>
       </nav>
@@ -471,8 +464,8 @@
   <script src="{{asset('assets/js/main.js')}}"></script>
 
   {{-- datatable --}}
-  {{-- <script src="{{ asset('assets/js/table.js') }}"></script>
-    <script src="{{ asset('assets/js/bootstrap.js') }}"></script> --}}
+  <script src="{{ asset('assets/js/table.js') }}"></script>
+    {{-- <script src="{{ asset('assets/js/bootstrap.js') }}"></script> --}}
   {{-- datatable --}}
 </body>
 
