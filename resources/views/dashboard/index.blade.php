@@ -15,11 +15,11 @@
             </thead>
 
             <tbody>
-                @foreach ($)
+                @foreach ($payment as $payments)
                 <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
+                    <td>{{ $payment->name }}</td>
+                    <td>{{ $payemt->amount }}</td>
+                    <td>{{ $payment->payment_type }}</td>
                     <td></td>
                     <td><button class="btn btn-sm btn-primary">Pending</button></td>
                     <td>
