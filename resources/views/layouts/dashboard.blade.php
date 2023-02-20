@@ -10,8 +10,11 @@
   <meta content="" name="keywords">
 
   {{-- Datatable --}}
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-  <link rel="stylesheet" href="https://cdn.datatables.net/1.10.24/css/dataTables.bootstrap4.min.css">
+  {{-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.10.24/css/dataTables.bootstrap4.min.css"> --}}
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.min.css">
+
+
 
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
@@ -39,7 +42,7 @@
   <link href="{{asset('assets/vendor/remixicon/remixicon.css')}}" rel="stylesheet">
   <link href="{{asset('assets/vendor/simple-datatables/style.css')}}" rel="stylesheet">
 
-  <!-- Template Main CSS File --> 
+  <!-- Template Main CSS File -->
   <link href="{{asset('assets/css/style.css')}}" rel="stylesheet">
 
   <!-- =======================================================
@@ -62,7 +65,7 @@
       </a>
       <i class="bi bi-list toggle-sidebar-btn"></i>
     </div>
-    <!-- End Logo -->   
+    <!-- End Logo -->
 
     <nav class="header-nav ms-auto">
       <ul class="d-flex align-items-center">
@@ -162,7 +165,7 @@
             </li>
             <li>
               <hr class="dropdown-divider">
-            </li> 
+            </li>
 
             <li class="message-item">
               <a href="#">
@@ -469,4 +472,4 @@
   {{-- datatable --}}
 </body>
 
-</html> 
+</html>

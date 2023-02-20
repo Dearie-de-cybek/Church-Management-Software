@@ -24,3 +24,8 @@ Route::name('dashboard.')->prefix('dashboard')->group(function() {
     Route::get('approve/{id}', [PaymentController::class, 'approve'] )->name('approve');
     Route::get('decline/{id}', [PaymentController::class, 'decline'] )->name('decline');
 });
+
+Route::name('user.')->prefix('dashboard')->group(function() {
+    Route::get('payment', [PaymentController::class, 'create'])->name('payment');
+    Route::post('payment', [PaymentController::class, 'store'])->name('pay');
+});

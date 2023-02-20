@@ -4,6 +4,12 @@ namespace App\Http\Controllers;
 
 use App\Models\Payment;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
+use Illuminate\Validation\Rule;
+use Illuminate\Support\Facades\DB;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Validator;
 
 class PaymentController extends Controller
 {
@@ -25,6 +31,7 @@ class PaymentController extends Controller
     public function create()
     {
         //
+
     }
 
     /**
@@ -36,6 +43,25 @@ class PaymentController extends Controller
     public function store(Request $request)
     {
         //
+        $request->validate([
+            'name' => 'required',
+            'amount' => 'required',
+            'payment_type' => 'required',
+            'status' => 'required'
+        ]);
+
+        DB::beginTransaction();
+
+        $payment = Payment::create([
+            'name' => $request->input('name'),
+            'amount' => $request->input('amount'),
+            'payment' => $request->input('payment_type'),
+            'status' => $request->input('status')
+        ]);
+
+        DB::commit();
+        return redirect()->back()->with('message', 'Payment Submitted Successfully');
+        DB::rollBack();
     }
 
     /**
@@ -94,10 +120,10 @@ class PaymentController extends Controller
         return redirect()->back();
     }
 
-    public function decline($id) 
+    public function decline($id)
     {
         $payments = Payment::findOrFail($id);
-        
+
         $payments->status = 'Decline';
 
         $payments->save();
