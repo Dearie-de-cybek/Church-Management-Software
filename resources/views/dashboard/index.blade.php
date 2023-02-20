@@ -43,25 +43,48 @@
         </table>
     </div>
 
-{{-- ------------------ form ------------------- --}}
-<div class="container">
-    <form method="POST" action="{{ route('user.pay') }}" enctype="multipart/form-data">
-        @csrf
-        <label for="name" class="form-label">Name: </label>
-        <input type="text" name="name" id="name" class="form-control">
+    {{-- ------------------ Payment Form ------------------- --}}
+        <h1><strong class="text-center">Payment Form</strong></h1>
+        <div class="container">
+            <form method="POST" action="{{ route('user.pay') }}" enctype="multipart/form-data">
+                @csrf
+                <label for="name" class="form-label">Name: </label>
+                <input type="text" name="name" id="name" class="form-control" required>
 
-        <label for="amount" class="form-label">Amount: </label>
-        <input type="text" name="amount" id="amount" class="form-control">
+                <label for="amount" class="form-label">Amount: </label>
+                <input type="text" name="amount" id="amount" class="form-control" required>
 
-        <label for="payment_type" class="form-label">Payment Type: </label>
-        <input type="text" name="payment_type" id="payment_type" class="form-control">
+                <label for="payment_type" class="form-label">Payment Type: </label>
+                <input type="text" name="payment_type" id="payment_type" class="form-control" required>
 
-        {{-- <label for="Status" class="form-label">Status: </label> --}}
-        <input type="text" name="status" id="Status" value="Pending" class="form-control" hidden>
 
-        <button class="btn btn-sm btn-outline-info mt-3" type="submit">Submit</button>
-    </form>
-</div>
-{{-- ------------------ form ------------------- --}}
+                <input type="text" name="status" id="Status" value="Pending" class="form-control" hidden>
+
+                <button class="btn btn-sm btn-outline-info mt-3" type="submit">Submit</button>
+            </form>
+        </div>
+    {{-- ------------------ Payment Form ------------------- --}}
+
+    {{-- ------------------ News and Event Form ------------------- --}}
+    <h1><strong class="text-center">News and Event Form</strong></h1>
+        <div class="container mt-5">
+            <form method="POST" action="{{ route('dashboard.new') }}" enctype="multipart/form-data">
+                @csrf
+                <label for="title" class="form-label">Title: </label>
+                <input type="text" name="title" id="title" class="form-control" required>
+
+                <label for="description" class="form-label">Description: </label>
+                <input type="text" name="description" id="description" class="form-control" required>
+
+                <label for="slug" class="form-label">Slug: </label>
+                <input type="text" name="slug" id="slug" class="form-control" required>
+
+                <label for="image" class="form-label">Image: </label>
+                <input type="file" name="image" id="image" value="Pending" class="form-control">
+
+                <button class="btn btn-sm btn-outline-info mt-3" type="submit">Submit</button>
+            </form>
+        </div>
+    {{-- ------------------ News and Event Form ------------------- --}}
 
 @endsection
