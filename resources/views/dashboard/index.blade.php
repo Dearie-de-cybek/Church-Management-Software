@@ -87,4 +87,11 @@
         </div>
     {{-- ------------------ News and Event Form ------------------- --}}
 
+    {{-- ------------------ News and Event Form ------------------- --}}
+    <h1><strong class="text-center">News and Event Form</strong></h1>
+        <div class="container mt-5">
+        </div>
+    {{-- ------------------ News and Event Form ------------------- --}}
+
+
 @endsection
