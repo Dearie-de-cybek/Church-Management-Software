@@ -13,7 +13,7 @@ class DashboardController extends Controller
     public function index() {
         $payments = Payment::all();
         $news = News::all();
-        return view('dashboard.index', ['payments' => $payments]);
+        return view('dashboard.index', ['payments' => $payments], ['news' => $news]);
     }
 
 

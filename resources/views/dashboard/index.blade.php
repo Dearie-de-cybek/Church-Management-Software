@@ -82,7 +82,7 @@
                 <input type="text" name="title" id="title" class="form-control" required>
 
                 <label for="description" class="form-label">Description: </label>
-                <input type="text" name="description" id="description" class="form-control" required>
+                <textarea type="text" name="description" id="description" class="form-control" required></textarea>
 
                 <label for="slug" class="form-label">Slug: </label>
                 <input type="text" name="slug" id="slug" class="form-control" required>
@@ -97,14 +97,20 @@
 
     {{-- ------------------ News and Event Form View ------------------- --}}
         <div class="row mt-5">
-            <div class="col-md-6 col-sm-12 col-xs-12">
-                <div class="card">
-                    <img src="..." class="card-img-top" alt="...">
-                    <div class="card-body">
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            @foreach ($news as $new)
+                <div class="col-md-6 col-sm-12 col-xs-12">
+                    <div class="card shadow shadow-lg p-3">
+                        <p><strong>{{$new->title}}</strong></p>
+                        <img src="{{asset('storage/'.$new->image)}}" class="card-img-top img-fluid" alt="...">
+                        <div class="card-body">
+                        <p class="card-text">{{$new->description}}</p>
+                        <button id="like-btn" class="btn btn-light bi bi-hand-thumbs-up"> Like</button>
+                        <button id="like-btn" class="btn btn-light bi bi-chat"> Comment</button>
+
+                        </div>
                     </div>
                 </div>
-            </div>
+            @endforeach
         </div>
     {{-- ------------------ News and Event Form View ------------------- --}}
 
