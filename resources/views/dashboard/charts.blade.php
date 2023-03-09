@@ -1,6 +1,9 @@
 @extends('layouts.dashboard')
 @section('content')
 
-<h1>Hello world</h1>
+<h1>Charts</h1>
+<div>
+    <canvas id="myChart"></canvas>
+</div>
 
 @endsection
