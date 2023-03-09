@@ -63,7 +63,14 @@
                 <input type="text" name="amount" id="amount" class="form-control" required>
 
                 <label for="payment_type" class="form-label">Payment Type: </label>
-                <input type="text" name="payment_type" id="payment_type" class="form-control" required>
+                {{-- <input type="text" name="payment_type" id="payment_type" class="form-control" required> --}}
+                <select class="form-select mb-3" aria-label=".form-select-lg example" name="payment_type" required>
+                    <option selected>Select Your Payment Type</option>
+                    <option value="Offering">Offering</option>
+                    <option value="Prophetic Seed">Prophetic Seed</option>
+                    <option value="Tithe">Tithe</option>
+                    <option value="Church Project">Church Project</option>
+                </select>
 
 
                 <input type="text" name="status" id="Status" value="Pending" class="form-control" hidden>
@@ -73,8 +80,8 @@
         </div>
     {{-- ------------------ Payment Form ------------------- --}}
 
-    {{-- ------------------ News and Event Form ------------------- --}}
-    <h1 class="mt-5"><strong class="text-center">News and Event Form</strong></h1>
+    {{-- ------------------ News ------------------- --}}
+    <h1 class="mt-5"><strong class="text-center">News</strong></h1>
         <div class="container">
             <form method="POST" action="{{ route('dashboard.new') }}" enctype="multipart/form-data">
                 @csrf
@@ -93,9 +100,9 @@
                 <button class="btn btn-sm btn-outline-info mt-3" type="submit">Submit</button>
             </form>
         </div>
-    {{-- ------------------ News and Event Form ------------------- --}}
+    {{-- ------------------ News ------------------- --}}
 
-    {{-- ------------------ News and Event Form View ------------------- --}}
+    {{-- ------------------ News View ------------------- --}}
         <div class="row mt-5">
             @foreach ($news as $new)
                 <div class="col-md-6 col-sm-12 col-xs-12">
@@ -112,7 +119,31 @@
                 </div>
             @endforeach
         </div>
-    {{-- ------------------ News and Event Form View ------------------- --}}
+    {{-- ------------------ News View ------------------- --}}
+
+    {{-- ------------------ Semons ------------------- --}}
+        <h1><strong class="text-center">Semon Form</strong></h1>
+        <div class="container">
+            <form method="POST" action="" enctype="multipart/form-data">
+                @csrf
+                <label for="name" class="form-label">Name: </label>
+                <input type="text" name="name" id="name" class="form-control" required>
+
+                <label for="author" class="form-label">Author: </label>
+                <input type="text" name="author" id="author" class="form-control" required>
+
+                <label for="duration" class="form-label">Duration: </label>
+                <input type="number" name="duration" id="duration" class="form-control" required>
+
+                <label for="data" class="form-label">Date: </label>
+                <input type="date" name="data" id="data" value="Pending" class="form-control" required>
+
+                <button class="btn btn-sm btn-outline-info mt-3" type="submit">Submit</button>
+            </form>
+        </div>
+    {{-- ------------------ Semons ------------------- --}}
+
+
 
 
 @endsection
