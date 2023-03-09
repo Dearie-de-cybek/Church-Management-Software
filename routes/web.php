@@ -24,6 +24,7 @@ Route::name('dashboard.')->prefix('dashboard')->group(function() {
     Route::get('', [DashboardController::class, 'index'])->name('dashboard');
     Route::get('approve/{id}', [PaymentController::class, 'approve'] )->name('approve');
     Route::get('decline/{id}', [PaymentController::class, 'decline'] )->name('decline');
+    Route::get('charts', function (){ return view('dashboard.charts');} )->name('charts');
 
 
     Route::get('news', [NewsController::class, 'create'])->name('news');
@@ -33,5 +34,4 @@ Route::name('dashboard.')->prefix('dashboard')->group(function() {
 Route::name('user.')->prefix('dashboard')->group(function() {
     Route::get('payment', [PaymentController::class, 'create'])->name('payment');
     Route::post('payment', [PaymentController::class, 'store'])->name('pay');
-
 });

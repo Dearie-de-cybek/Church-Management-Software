@@ -345,7 +345,7 @@
         </a>
         <ul id="charts-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
           <li>
-            <a href="">
+            <a href="{{ route('dashboard.charts') }}">
               <i class="bi bi-circle"></i><span>Chart.js</span>
             </a>
           </li>
@@ -462,12 +462,13 @@
   <script src="{{asset('assets/vendor/simple-datatables/simple-datatables.js')}}"></script>
   <script src="{{asset('assets/vendor/tinymce/tinymce.min.js')}}"></script>
   <script src="{{asset('assets/vendor/php-email-form/validate.js')}}"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
   <!-- Template Main JS File -->
   <script src="{{asset('assets/js/main.js')}}"></script>
 
   {{-- datatable --}}
-  <script src="{{ asset('assets/js/table.js') }}"></script>
+  <script src="{{ asset('assets/js/app.js') }}"></script>
     {{-- <script src="{{ asset('assets/js/bootstrap.js') }}"></script> --}}
   {{-- datatable --}}
 </body>
