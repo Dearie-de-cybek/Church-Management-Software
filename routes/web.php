@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\NewsController;
+use App\Http\Controllers\SermonController;
+use App\Http\Controllers\EventController;
 use App\Http\Controllers\Dashboard\DashboardController;
 
 /*
@@ -28,6 +30,14 @@ Route::name('dashboard.')->prefix('dashboard')->group(function() {
 
     Route::get('news', [NewsController::class, 'create'])->name('news');
     Route::post('news', [NewsController::class, 'store'])->name('new');
+
+    Route::get('sermon', [SermonController::class, 'create'])->name('sermon');
+    Route::post('sermon', [SermonController::class, 'store'])->name('sermons');
+
+    Route::get('event', [EventController::class, 'create'])->name('event');
+    Route::post('event', [EventController::class, 'store'])->name('events');
+
+
 });
 
 Route::name('user.')->prefix('dashboard')->group(function() {
