@@ -1,8 +1,9 @@
 <?php
 
+use App\Models\Payment;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\NewsController;
+use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\Dashboard\DashboardController;
 
 /*
@@ -24,7 +25,10 @@ Route::name('dashboard.')->prefix('dashboard')->group(function() {
     Route::get('', [DashboardController::class, 'index'])->name('dashboard');
     Route::get('approve/{id}', [PaymentController::class, 'approve'] )->name('approve');
     Route::get('decline/{id}', [PaymentController::class, 'decline'] )->name('decline');
-    Route::get('charts', function (){ return view('dashboard.charts');} )->name('charts');
+    Route::get('charts', function (){ 
+        $data = DB::table('payments')->select('payment', 'amount')->get();
+        return response()->json($data);
+        return view('dashboard.charts');} )->name('charts');
 
 
     Route::get('news', [NewsController::class, 'create'])->name('news');

@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Builder;
 use App\Models\User;
 
 class Payment extends Model
@@ -15,4 +16,16 @@ class Payment extends Model
     public function user() {
         return $this->belongsTo(User::class);
     }
+
+    public function scopeGroupByMonth() {
+        return query->selectRaw('month(created_at) as month')
+        ->selectRaw('count(*) as count')
+        ->groupBy('month')
+        ->orderBy('month')
+        ->pluck('count', 'month')
+        ->values()
+        ->toArray();
+    }
+    
 }
+  
