@@ -17,8 +17,8 @@ class Payment extends Model
         return $this->belongsTo(User::class);
     }
 
-    public function scopeGroupByMonth() {
-        return query->selectRaw('month(created_at) as month')
+    public function scopeGroupByMonth(Builder $query) {
+        return $query->selectRaw('month(created_at) as month')
         ->selectRaw('count(*) as count')
         ->groupBy('month')
         ->orderBy('month')

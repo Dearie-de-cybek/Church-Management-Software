@@ -2,8 +2,10 @@
 @section('content')
 
 <h1>Charts</h1>
+
 <div>
-    <canvas id="myChart"></canvas>
+    <livewire:chart-payments />
+   
 </div>
 
 @endsection

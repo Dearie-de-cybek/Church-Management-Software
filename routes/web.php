@@ -1,6 +1,8 @@
 <?php
 
+use App\Models\User;
 use App\Models\Payment;
+use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\NewsController;
 use App\Http\Controllers\PaymentController;
@@ -20,17 +22,20 @@ use App\Http\Controllers\Dashboard\DashboardController;
 Route::get('/', function () {
     return view('welcome');
 });
-
+ 
 Route::name('dashboard.')->prefix('dashboard')->group(function() {
     Route::get('', [DashboardController::class, 'index'])->name('dashboard');
     Route::get('approve/{id}', [PaymentController::class, 'approve'] )->name('approve');
     Route::get('decline/{id}', [PaymentController::class, 'decline'] )->name('decline');
     Route::get('charts', function (){ 
-        $data = DB::table('payments')->select('payment', 'amount')->get();
-        return response()->json($data);
+        
         return view('dashboard.charts');} )->name('charts');
-
-
+    Route::get('stats', function(){
+        $usersCount = User::where('created_at', '>=', now()->subDays(30))->count();
+        $paymentsCount = Payment::where('created_at', '>=', now()->subDays(30))->count();
+        // $revenue = Payment::where('created_at', '>=', now()->subDays(30))->sum('total');
+        return view('dashboard.stats', ['usersCount' => $usersCount, 'paymentsCount' => $paymentsCount]);
+    });
     Route::get('news', [NewsController::class, 'create'])->name('news');
     Route::post('news', [NewsController::class, 'store'])->name('new');
 
