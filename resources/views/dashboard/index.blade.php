@@ -108,7 +108,8 @@
                 <div class="col-md-6 col-sm-12 col-xs-12">
                     <div class="card shadow shadow-lg p-3">
                         <p><strong>{{$new->title}}</strong></p>
-                        <img src="{{asset('storage/'.$new->image)}}" class="card-img-top img-fluid" alt="...">
+                        {{-- <img src="{{asset('storage/'.$new->image)}}" class="card-img-top img-fluid" alt="..."> --}}
+                        <video src="{{asset('storage/'.$new->image)}}" controls></video>
                         <div class="card-body">
                         <p class="card-text">{{$new->description}}</p>
                         <button id="like-btn" class="btn btn-light bi bi-hand-thumbs-up"> Like</button>
@@ -121,10 +122,10 @@
         </div>
     {{-- ------------------ News View ------------------- --}}
 
-    {{-- ------------------ Semons ------------------- --}}
-        <h1><strong class="text-center">Semon Form</strong></h1>
+    {{-- ------------------ Sermons ------------------- --}}
+        <h1><strong class="text-center">Sermon Form</strong></h1>
         <div class="container">
-            <form method="POST" action="" enctype="multipart/form-data">
+            <form method="POST" action="{{ route('dashboard.sermons') }}" enctype="multipart/form-data">
                 @csrf
                 <label for="name" class="form-label">Name: </label>
                 <input type="text" name="name" id="name" class="form-control" required>
@@ -136,12 +137,34 @@
                 <input type="number" name="duration" id="duration" class="form-control" required>
 
                 <label for="data" class="form-label">Date: </label>
-                <input type="date" name="data" id="data" value="Pending" class="form-control" required>
+                <input type="date" name="date" id="data" value="Pending" class="form-control" required>
 
                 <button class="btn btn-sm btn-outline-info mt-3" type="submit">Submit</button>
             </form>
         </div>
-    {{-- ------------------ Semons ------------------- --}}
+    {{-- ------------------ Sermons ------------------- --}}
+
+    {{-- ------------------ Events ------------------- --}}
+        <h1><strong class="text-center">Event Form</strong></h1>
+        <div class="container">
+            <form method="POST" action="{{ route('dashboard.events') }}" enctype="multipart/form-data">
+                @csrf
+                <label for="name" class="form-label">Name: </label>
+                <input type="text" name="name" id="name" class="form-control" required>
+
+                <label for="author" class="form-label">Author: </label>
+                <input type="text" name="author" id="author" class="form-control" required>
+
+                <label for="duration" class="form-label">Duration: </label>
+                <input type="number" name="duration" id="duration" class="form-control" required>
+
+                <label for="data" class="form-label">Date: </label>
+                <input type="date" name="date" id="data" value="Pending" class="form-control" required>
+
+                <button class="btn btn-sm btn-outline-info mt-3" type="submit">Submit</button>
+            </form>
+        </div>
+    {{-- ------------------ Events ------------------- --}}
 
 
 

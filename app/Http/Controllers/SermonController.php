@@ -2,10 +2,16 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\semon;
+use App\Models\Sermon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
+use Illuminate\Validation\Rule;
+use Illuminate\Support\Facades\DB;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Validator;
 
-class SemonController extends Controller
+class SermonController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -36,6 +42,25 @@ class SemonController extends Controller
     public function store(Request $request)
     {
         //
+        $request->validate([
+            'name' => 'required',
+            'author' => 'required',
+            'duration' => 'required',
+            'date' => 'required'
+        ]);
+
+        DB::beginTransaction();
+
+        $somen = Sermon::create([
+            'name' => $request->input('name'),
+            'author' => $request->input('author'),
+            'duration' => $request->input('duration'),
+            'date' => $request->input('date')
+        ]);
+
+        DB::commit();
+        return redirect()->back()->with('message', 'Payment Submitted Successfully');
+        DB::rollBack();
     }
 
     /**
@@ -44,7 +69,7 @@ class SemonController extends Controller
      * @param  \App\Models\semon  $semon
      * @return \Illuminate\Http\Response
      */
-    public function show(semon $semon)
+    public function show(sermon $sermon)
     {
         //
     }
@@ -55,7 +80,7 @@ class SemonController extends Controller
      * @param  \App\Models\semon  $semon
      * @return \Illuminate\Http\Response
      */
-    public function edit(semon $semon)
+    public function edit(sermon $sermon)
     {
         //
     }
@@ -67,7 +92,7 @@ class SemonController extends Controller
      * @param  \App\Models\semon  $semon
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, semon $semon)
+    public function update(Request $request, sermon $sermon)
     {
         //
     }
@@ -78,7 +103,7 @@ class SemonController extends Controller
      * @param  \App\Models\semon  $semon
      * @return \Illuminate\Http\Response
      */
-    public function destroy(semon $semon)
+    public function destroy(sermon $sermon)
     {
         //
     }
