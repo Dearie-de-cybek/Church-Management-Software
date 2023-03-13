@@ -52,7 +52,7 @@
     </div>
 
     {{-- ------------------ Payment Form ------------------- --}}
-        <h1><strong class="text-center">Payment Form</strong></h1>
+        <h1 class="text-center"><strong >Payment Form</strong></h1>
         <div class="container">
             <form method="POST" action="{{ route('user.pay') }}" enctype="multipart/form-data">
                 @csrf
@@ -81,7 +81,7 @@
     {{-- ------------------ Payment Form ------------------- --}}
 
     {{-- ------------------ News ------------------- --}}
-    <h1 class="mt-5"><strong class="text-center">News</strong></h1>
+    <h1 class="text-center"><strong >News</strong></h1>
         <div class="container">
             <form method="POST" action="{{ route('dashboard.new') }}" enctype="multipart/form-data">
                 @csrf
@@ -103,12 +103,12 @@
     {{-- ------------------ News ------------------- --}}
 
     {{-- ------------------ News View ------------------- --}}
-        <div class="row mt-5">
+        {{-- <div class="row mt-5">
             @foreach ($news as $new)
                 <div class="col-md-6 col-sm-12 col-xs-12">
                     <div class="card shadow shadow-lg p-3">
                         <p><strong>{{$new->title}}</strong></p>
-                        {{-- <img src="{{asset('storage/'.$new->image)}}" class="card-img-top img-fluid" alt="..."> --}}
+                        {{-- <img src="{{asset('storage/'.$new->image)}}" class="card-img-top img-fluid" alt="...">
                         <video src="{{asset('storage/'.$new->image)}}" controls></video>
                         <div class="card-body">
                         <p class="card-text">{{$new->description}}</p>
@@ -119,11 +119,11 @@
                     </div>
                 </div>
             @endforeach
-        </div>
+        </div> --}}
     {{-- ------------------ News View ------------------- --}}
 
     {{-- ------------------ Sermons ------------------- --}}
-        <h1><strong class="text-center">Sermon Form</strong></h1>
+        <h1 class="text-center"><strong >Sermon Form</strong></h1>
         <div class="container">
             <form method="POST" action="{{ route('dashboard.sermons') }}" enctype="multipart/form-data">
                 @csrf
@@ -145,7 +145,7 @@
     {{-- ------------------ Sermons ------------------- --}}
 
     {{-- ------------------ Events ------------------- --}}
-        <h1><strong class="text-center">Event Form</strong></h1>
+        <h1 class="text-center"><strong >Event Form</strong></h1>
         <div class="container">
             <form method="POST" action="{{ route('dashboard.events') }}" enctype="multipart/form-data">
                 @csrf
@@ -155,8 +155,14 @@
                 <label for="author" class="form-label">Author: </label>
                 <input type="text" name="author" id="author" class="form-control" required>
 
-                <label for="duration" class="form-label">Duration: </label>
-                <input type="number" name="duration" id="duration" class="form-control" required>
+                <label for="event_category_id" class="form-label">Category: </label>
+                <select name="event_category_id" id="event_category_id" class="form-select">
+                    <option value="">Select Category</option>
+                    @foreach ($categories as $category)
+                        <option value="{{$category->id}}">{{$category->name}}</option>
+                    @endforeach
+                </select>
+                {{-- <input type="text" name="category" id="category" class="form-control" required> --}}
 
                 <label for="data" class="form-label">Date: </label>
                 <input type="date" name="date" id="data" value="Pending" class="form-control" required>
@@ -166,7 +172,20 @@
         </div>
     {{-- ------------------ Events ------------------- --}}
 
+    {{-- ------------------ Event Category ------------------- --}}
+        <h1 class="text-center"><strong >Event Category Form</strong></h1>
+        <div class="container">
+            <form method="POST" action="{{ route('dashboard.eventCategories') }}" enctype="multipart/form-data">
+                @csrf
+                <label for="name" class="form-label">Category Name: </label>
+                <input type="text" name="name" id="name" class="form-control" required>
 
+                <label for="slug" class="form-label">Category Slug: </label>
+                <input type="text" name="slug" id="slug" class="form-control" required>
 
+                <button class="btn btn-sm btn-outline-info mt-3" type="submit">Submit</button>
+            </form>
+        </div>
+    {{-- ------------------ Event Category ------------------- --}}
 
 @endsection

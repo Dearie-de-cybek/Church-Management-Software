@@ -45,16 +45,16 @@ class EventController extends Controller
         $request->validate([
             'name' => 'required',
             'author' => 'required',
-            'duration' => 'required',
+            'event_category_id' => 'required',
             'date' => 'required'
         ]);
 
         DB::beginTransaction();
 
-        $somen = Event::create([
+        $event = Event::create([
             'name' => $request->input('name'),
             'author' => $request->input('author'),
-            'duration' => $request->input('duration'),
+            'event_category_id' => $request->input('event_category_id'),
             'date' => $request->input('date')
         ]);
 
