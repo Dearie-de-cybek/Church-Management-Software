@@ -25,6 +25,10 @@
 
   {{-- datatable --}}
 
+  {{-- chart --}}
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  {{-- chart --}}
+
   <!-- Favicons -->
   <link href="{{asset('assets/img/logo.svg')}}" rel="icon">
   <link href="{{asset('assets/img/logo.svg')}}" rel="apple-touch-icon">

@@ -188,4 +188,26 @@
         </div>
     {{-- ------------------ Event Category ------------------- --}}
 
+    {{-- ------------------ Appointment ------------------- --}}
+        <h1 class="text-center"><strong >Appointment Form</strong></h1>
+        <div class="container">
+            <form method="POST" action="{{ route('user.appointments') }}" enctype="multipart/form-data">
+                @csrf
+                <label for="name" class="form-label">Name: </label>
+                <input type="text" name="name" id="name" class="form-control" required>
+
+                <label for="email" class="form-label">Email: </label>
+                <input type="text" name="email" id="email" class="form-control" required>
+
+                <label for="phone" class="form-label">Phone Number: </label>
+                <input type="text" name="phone" id="phone" class="form-control" required>
+
+                <label for="message" class="form-label">Message:</label>
+                <textarea name="message" id="message" class="form-control" cols="30" rows="10"></textarea>
+
+                <button class="btn btn-sm btn-outline-info mt-3" type="submit">Submit</button>
+            </form>
+        </div>
+    {{-- ------------------ Appointment ------------------- --}}
+
 @endsection
