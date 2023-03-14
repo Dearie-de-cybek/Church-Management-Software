@@ -49,7 +49,7 @@
       </div>
 
       <div class="card-body">
-        <h5 class="card-title">Users <span>| Today</span></h5>
+        <h5 class="card-title">Payments <span>| Today</span></h5>
 
         <div class="d-flex align-items-center">
           <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
