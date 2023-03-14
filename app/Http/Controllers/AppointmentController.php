@@ -4,6 +4,12 @@ namespace App\Http\Controllers;
 
 use App\Models\Appointment;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
+use Illuminate\Validation\Rule;
+use Illuminate\Support\Facades\DB;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Validator;
 
 class AppointmentController extends Controller
 {
@@ -36,6 +42,25 @@ class AppointmentController extends Controller
     public function store(Request $request)
     {
         //
+        $request->validate([
+            'name' => 'required',
+            'email' => 'required',
+            'phone' => 'required',
+            'message' => 'required'
+        ]);
+
+        DB::beginTransaction();
+
+        $appointment = Appointment::create([
+            'name' => $request->input('name'),
+            'email' => $request->input('email'),
+            'phone' => $request->input('phone'),
+            'message' => $request->input('message')
+        ]);
+
+        DB::commit();
+        return redirect()->back()->with('message', 'Payment Submitted Successfully');
+        DB::rollBack();
     }
 
     /**

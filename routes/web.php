@@ -7,6 +7,7 @@ use App\Http\Controllers\SermonController;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\EventCategoryController;
 use App\Http\Controllers\Dashboard\DashboardController;
+use App\Http\Controllers\AppointmentController;
 
 /*
 |--------------------------------------------------------------------------
@@ -41,11 +42,15 @@ Route::name('dashboard.')->prefix('dashboard')->group(function() {
     Route::get('eventCategory', [EventCategoryController::class, 'create'])->name('eventCategory');
     Route::post('eventCategory', [EventCategoryController::class, 'store'])->name('eventCategories');
 
+    Route::get('chart', [DashboardController::class, 'chart'])->name('chart');
 
 });
 
 Route::name('user.')->prefix('dashboard')->group(function() {
     Route::get('payment', [PaymentController::class, 'create'])->name('payment');
     Route::post('payment', [PaymentController::class, 'store'])->name('pay');
+
+    Route::get('appointment', [AppointmentController::class, 'create'])->name('appointment');
+    Route::post('appointment', [AppointmentController::class, 'store'])->name('appointments');
 
 });
