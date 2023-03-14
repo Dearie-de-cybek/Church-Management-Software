@@ -8,7 +8,6 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\NewsController;
 use App\Http\Controllers\ChartController;
 use App\Http\Controllers\PaymentController;
-use App\Http\Controllers\NewsController;
 use App\Http\Controllers\SermonController;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\Dashboard\DashboardController;
