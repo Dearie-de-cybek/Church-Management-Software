@@ -1,10 +1,12 @@
 <?php
 
+use Carbon\Carbon;
 use App\Models\User;
 use App\Models\Payment;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\NewsController;
+use App\Http\Controllers\ChartController;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\Dashboard\DashboardController;
 
@@ -27,13 +29,9 @@ Route::name('dashboard.')->prefix('dashboard')->group(function() {
     Route::get('', [DashboardController::class, 'index'])->name('dashboard');
     Route::get('approve/{id}', [PaymentController::class, 'approve'] )->name('approve');
     Route::get('decline/{id}', [PaymentController::class, 'decline'] )->name('decline');
-    Route::get('charts', function (){ 
-        
-        return view('dashboard.charts');} )->name('charts');
     Route::get('stats', function(){
         $usersCount = User::where('created_at', '>=', now()->subDays(30))->count();
         $paymentsCount = Payment::where('created_at', '>=', now()->subDays(30))->count();
-        // $revenue = Payment::where('created_at', '>=', now()->subDays(30))->sum('total');
         return view('dashboard.stats', ['usersCount' => $usersCount, 'paymentsCount' => $paymentsCount]);
     });
     Route::get('news', [NewsController::class, 'create'])->name('news');
@@ -46,9 +44,10 @@ Route::name('dashboard.')->prefix('dashboard')->group(function() {
     Route::post('event', [EventController::class, 'store'])->name('events');
 
 
-});
+
 
 Route::name('user.')->prefix('dashboard')->group(function() {
     Route::get('payment', [PaymentController::class, 'create'])->name('payment');
     Route::post('payment', [PaymentController::class, 'store'])->name('pay');
+});
 });
