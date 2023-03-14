@@ -2,16 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\EventCategory;
+use App\Models\Appointment;
 use Illuminate\Http\Request;
-use Illuminate\Support\Str;
-use Illuminate\Validation\Rule;
-use Illuminate\Support\Facades\DB;
-use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Validator;
 
-class EventCategoryController extends Controller
+class AppointmentController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -42,29 +36,15 @@ class EventCategoryController extends Controller
     public function store(Request $request)
     {
         //
-        $valid= $request->validate([
-            'name' => 'required',
-            'slug' => 'required|unique:news',
-        ]);
-        
-        $slug = Str::slug($valid['slug'], '-');
-
-        DB::beginTransaction();
-
-        EventCategory::create(array_merge($valid,['slug' => $slug]));
-
-        DB::commit();
-        return redirect()->back()->with('message', 'Event Category Created Submitted Successfully');
-        DB::rollBack();
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\EventCategory  $eventCategory
+     * @param  \App\Models\Appointment  $appointment
      * @return \Illuminate\Http\Response
      */
-    public function show(EventCategory $eventCategory)
+    public function show(Appointment $appointment)
     {
         //
     }
@@ -72,10 +52,10 @@ class EventCategoryController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\EventCategory  $eventCategory
+     * @param  \App\Models\Appointment  $appointment
      * @return \Illuminate\Http\Response
      */
-    public function edit(EventCategory $eventCategory)
+    public function edit(Appointment $appointment)
     {
         //
     }
@@ -84,10 +64,10 @@ class EventCategoryController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\EventCategory  $eventCategory
+     * @param  \App\Models\Appointment  $appointment
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, EventCategory $eventCategory)
+    public function update(Request $request, Appointment $appointment)
     {
         //
     }
@@ -95,10 +75,10 @@ class EventCategoryController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\EventCategory  $eventCategory
+     * @param  \App\Models\Appointment  $appointment
      * @return \Illuminate\Http\Response
      */
-    public function destroy(EventCategory $eventCategory)
+    public function destroy(Appointment $appointment)
     {
         //
     }

@@ -8,6 +8,9 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\NewsController;
 use App\Http\Controllers\ChartController;
 use App\Http\Controllers\PaymentController;
+use App\Http\Controllers\NewsController;
+use App\Http\Controllers\SermonController;
+use App\Http\Controllers\EventController;
 use App\Http\Controllers\Dashboard\DashboardController;
 
 /*
@@ -42,6 +45,9 @@ Route::name('dashboard.')->prefix('dashboard')->group(function() {
 
     Route::get('event', [EventController::class, 'create'])->name('event');
     Route::post('event', [EventController::class, 'store'])->name('events');
+
+    Route::get('eventCategory', [EventCategoryController::class, 'create'])->name('eventCategory');
+    Route::post('eventCategory', [EventCategoryController::class, 'store'])->name('eventCategories');
 
 
 
