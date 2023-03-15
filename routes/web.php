@@ -42,11 +42,19 @@ Route::name('dashboard.')->prefix('dashboard')->group(function() {
     Route::get('eventCategory', [EventCategoryController::class, 'create'])->name('eventCategory');
     Route::post('eventCategory', [EventCategoryController::class, 'store'])->name('eventCategories');
 
-    Route::get('chart', [DashboardController::class, 'chart'])->name('chart');
+
+
+    Route::name('payment.')->prefix('payment')->group(function() {
+        Route::get('', [DashboardController::class, 'payment'])->name('index');
+        Route::get('offering', [DashboardController::class, 'offering'])->name('offering');
+        Route::get('tithe', [DashboardController::class, 'tithe'])->name('tithe');
+        Route::get('church-project', [DashboardController::class, 'churchProject'])->name('church-project');
+        Route::get('prophetic-seed', [DashboardController::class, 'propheticSeed'])->name('prophetic-seed');
+    });
 
 });
 
-Route::name('user.')->prefix('dashboard')->group(function() {
+Route::name('user.')->prefix('user')->group(function() {
     Route::get('payment', [PaymentController::class, 'create'])->name('payment');
     Route::post('payment', [PaymentController::class, 'store'])->name('pay');
 

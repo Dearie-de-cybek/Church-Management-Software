@@ -18,16 +18,55 @@ class DashboardController extends Controller
         return view('dashboard.index', ['payments' => $payments], ['categories' => $categories], ['news' => $news]);
     }
 
-    public function chart() {
-        $payments = Payment::all('amount');
-        $offerings = Payment::all('payment', 'amount')->where('payment', 'Offering')->sum('amount');
-        $tithes = Payment::all('payment', 'amount')->where('payment', 'Tithe')->sum('amount');
-        $churchProjects = Payment::all('payment', 'amount')->where('payment', 'Church Project')->sum('amount');
-        $propheticSeeds = Payment::all('payment', 'amount')->where('payment', 'Prophetic Seed')->sum('amount');
+    public function payment() {
+        $payments = Payment::all();
+        $offerings = Payment::all('payment', 'amount', 'status')->where('payment', 'Offering')->where('status', 'Approved')->sum('amount');
+        $tithes = Payment::all('payment', 'amount', 'status')->where('payment', 'Tithe')->where('status', 'Approved')->sum('amount');
+        $churchProjects = Payment::all('payment', 'amount', 'status')->where('payment', 'Church Project')->where('status', 'Approved')->sum('amount');
+        $propheticSeeds = Payment::all('payment', 'amount', 'status')->where('payment', 'Prophetic Seed')->where('status', 'Approved')->sum('amount');
 
-        
-
-
-        return view('dashboard.chart', compact('payments','offerings', 'tithes', 'churchProjects', 'propheticSeeds'));
+        return view('dashboard.payment.index', compact('payments','offerings', 'tithes', 'churchProjects', 'propheticSeeds'));
     }
+
+    public function offering() {
+        $payments = Payment::all();
+        $offerings = Payment::all('payment', 'amount', 'status')->where('payment', 'Offering')->where('status', 'Approved')->sum('amount');
+        $tithes = Payment::all('payment', 'amount', 'status')->where('payment', 'Tithe')->where('status', 'Approved')->sum('amount');
+        $churchProjects = Payment::all('payment', 'amount', 'status')->where('payment', 'Church Project')->where('status', 'Approved')->sum('amount');
+        $propheticSeeds = Payment::all('payment', 'amount', 'status')->where('payment', 'Prophetic Seed')->where('status', 'Approved')->sum('amount');
+
+        return view('dashboard.payment.offering', compact('payments','offerings', 'tithes', 'churchProjects', 'propheticSeeds'));
+    }
+
+    public function tithe() {
+        $payments = Payment::all();
+        $offerings = Payment::all('payment', 'amount', 'status')->where('payment', 'Offering')->where('status', 'Approved')->sum('amount');
+        $tithes = Payment::all('payment', 'amount', 'status')->where('payment', 'Tithe')->where('status', 'Approved')->sum('amount');
+        $churchProjects = Payment::all('payment', 'amount', 'status')->where('payment', 'Church Project')->where('status', 'Approved')->sum('amount');
+        $propheticSeeds = Payment::all('payment', 'amount', 'status')->where('payment', 'Prophetic Seed')->where('status', 'Approved')->sum('amount');
+
+        return view('dashboard.payment.tithe', compact('payments','offerings', 'tithes', 'churchProjects', 'propheticSeeds'));
+    }
+
+    public function churchProject() {
+        $payments = Payment::all();
+        $offerings = Payment::all('payment', 'amount', 'status')->where('payment', 'Offering')->where('status', 'Approved')->sum('amount');
+        $tithes = Payment::all('payment', 'amount', 'status')->where('payment', 'Tithe')->where('status', 'Approved')->sum('amount');
+        $churchProjects = Payment::all('payment', 'amount', 'status')->where('payment', 'Church Project')->where('status', 'Approved')->sum('amount');
+        $propheticSeeds = Payment::all('payment', 'amount', 'status')->where('payment', 'Prophetic Seed')->where('status', 'Approved')->sum('amount');
+
+        return view('dashboard.payment.churchProject', compact('payments','offerings', 'tithes', 'churchProjects', 'propheticSeeds'));
+    }
+
+    public function propheticSeed() {
+        $payments = Payment::all();
+        $offerings = Payment::all('payment', 'amount', 'status')->where('payment', 'Offering')->where('status', 'Approved')->sum('amount');
+        $tithes = Payment::all('payment', 'amount', 'status')->where('payment', 'Tithe')->where('status', 'Approved')->sum('amount');
+        $churchProjects = Payment::all('payment', 'amount', 'status')->where('payment', 'Church Project')->where('status', 'Approved')->sum('amount');
+        $propheticSeeds = Payment::all('payment', 'amount', 'status')->where('payment', 'Prophetic Seed')->where('status', 'Approved')->sum('amount');
+
+        return view('dashboard.payment.churchProject', compact('payments','offerings', 'tithes', 'churchProjects', 'propheticSeeds'));
+    }
+
+
 }
