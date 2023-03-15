@@ -14,7 +14,7 @@
   <link rel="stylesheet" href="https://cdn.datatables.net/1.10.24/css/dataTables.bootstrap4.min.css"> --}}
   <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.min.css">
 
-    
+
 
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
@@ -292,34 +292,39 @@
 
       <li class="nav-item">
         <a class="nav-link " href="{{ route('dashboard.dashboard') }}">
-          <i class="bi bi-grid"></i>
-          <span>Dashboard</span>
+          <i class="bi bi-house-heart"></i>
+          <span>Home</span>
         </a>
       </li><!-- End Dashboard Nav -->
 
       <li class="nav-item">
         <a class="nav-link collapsed" data-bs-target="#forms-nav" data-bs-toggle="collapse" href="#">
-          <i class="bi bi-journal-text"></i><span>Forms</span><i class="bi bi-chevron-down ms-auto"></i>
+          <i class="bi bi-wallet2"></i><span>Payments</span><i class="bi bi-chevron-down ms-auto"></i>
         </a>
         <ul id="forms-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
           <li>
-            <a href="">
-              <i class="bi bi-circle"></i><span>Form Elements</span>
+            <a href="{{ route('dashboard.payment.index') }}">
+              <i class="bi bi-circle"></i><span>Overview</span>
             </a>
           </li>
           <li>
-            <a href="">
-              <i class="bi bi-circle"></i><span>Form Layouts</span>
+            <a href="{{ route('dashboard.payment.offering') }}">
+              <i class="bi bi-circle"></i><span>Offering Payments</span>
             </a>
           </li>
           <li>
-            <a href="">
-              <i class="bi bi-circle"></i><span>Form Editors</span>
+            <a href="{{ route('dashboard.payment.tithe') }}">
+              <i class="bi bi-circle"></i><span>Tithe Payments</span>
             </a>
           </li>
           <li>
-            <a href="">
-              <i class="bi bi-circle"></i><span>Form Validation</span>
+            <a href="{{ route('dashboard.payment.church-project') }}">
+              <i class="bi bi-circle"></i><span>Church Project Payments</span>
+            </a>
+          </li>
+          <li>
+            <a href="{{ route('dashboard.payment.prophetic-seed') }}">
+              <i class="bi bi-circle"></i><span>Prophetic Seeds Payments</span>
             </a>
           </li>
         </ul>

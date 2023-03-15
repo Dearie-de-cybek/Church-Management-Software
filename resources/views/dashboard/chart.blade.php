@@ -1,10 +1,51 @@
 @extends('layouts.dashboard')
 
 @section('content')
-<h1>{{$offerings}}</h1><br>
-<h1>{{$tithes}}</h1><br>
-<h1>{{$churchProjects}}</h1><br>
-<h1>{{$propheticSeeds}}</h1><br>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-3 col-sm-3 col-xs-3">
+           <div class="card shadow p-3 mb-5 bg-body rounded">
+                <div class="card-body">
+                <p class="card-text"><strong>Tithe</strong></p>
+                <h3 class="card-text">&#x20A6;{{$tithes}}</h3>
+                </div>
+            </div>
+        </div>
+        <div class="col-3 col-sm-3 col-xs-3">
+           <div class="card shadow p-3 mb-5 bg-body rounded">
+                <div class="card-body">
+                <p class="card-text"><strong>Offering</strong></p>
+                <h3 class="card-text">&#x20A6;{{$offerings}}</h3>
+                </div>
+            </div>
+        </div>
+        <div class="col-3 col-sm-3 col-xs-3">
+           <div class="card shadow p-3 mb-5 bg-body rounded">
+                <div class="card-body">
+                <p class="card-text"><strong>Church Project</strong></p>
+                <h3 class="card-text">&#x20A6;{{$churchProjects}}</h3>
+                </div>
+            </div>
+        </div>
+        <div class="col-3 col-sm-3 col-xs-3">
+           <div class="card shadow p-3 mb-5 bg-body rounded">
+                <div class="card-body">
+                <p class="card-text"><strong>Prophetic Seeds</strong></p>
+                <h3 class="card-text">&#x20A6;{{$propheticSeeds}}</h3>
+                </div>
+            </div>
+        </div>
+        <div class="col-3 col-sm-3 col-xs-3">
+           <div class="card shadow p-3 mb-5 bg-body rounded">
+                <div class="card-body">
+                <p class="card-text"><strong>Totals Revenue</strong></p>
+                <h3 class="card-text">&#x20A6;{{$propheticSeeds + $churchProjects + $offerings + $tithes}}</h3>
+                </div>
+            </div>
+        </div>
+    <div>
+</div>
+
 
 
 <canvas id="pieChart" style="max-height: 400px;"></canvas>
@@ -29,7 +70,7 @@
                     echo $total . ",";
                 }
             @endphp
-            
+
           ],
           backgroundColor: [
             'rgb(255, 99, 132)',
@@ -43,7 +84,7 @@
     });
   });
 </script>
-    
+
 @endsection
 
 {{-- var data = [
