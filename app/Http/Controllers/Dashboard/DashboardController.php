@@ -43,8 +43,9 @@ class DashboardController extends Controller
 
         return view('dashboard.chart', compact('payments','offerings', 'tithes', 'churchProjects', 'propheticSeeds'));
 
-    }
 
+        return view('dashboard.payment.index', compact('payments','offerings', 'tithes', 'churchProjects', 'propheticSeeds'));
+    }
     public function offering() {
         $payments = Payment::all();
         $offerings = Payment::all('payment', 'amount', 'status')->where('payment', 'Offering')->where('status', 'Approved')->sum('amount');
@@ -82,8 +83,9 @@ class DashboardController extends Controller
         $churchProjects = Payment::all('payment', 'amount', 'status')->where('payment', 'Church Project')->where('status', 'Approved')->sum('amount');
         $propheticSeeds = Payment::all('payment', 'amount', 'status')->where('payment', 'Prophetic Seed')->where('status', 'Approved')->sum('amount');
 
-        return view('dashboard.payment.churchProject', compact('payments','offerings', 'tithes', 'churchProjects', 'propheticSeeds'));
+        return view('dashboard.payment.propheticSeed', compact('payments','offerings', 'tithes', 'churchProjects', 'propheticSeeds'));
     }
 
 
 }
+

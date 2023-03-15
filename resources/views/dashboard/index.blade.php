@@ -209,5 +209,12 @@
             </form>
         </div>
     {{-- ------------------ Appointment ------------------- --}}
+<script>
+    $(document).ready(function() {
+  $('#myTable').DataTable();
+});
 
+</script>
 @endsection
+
+
