@@ -20,11 +20,10 @@
           'Prophetic Seed'
         ],
         datasets: [{
-          label: 'My First Dataset',
+          label: '',
           data: [
             @php
                 $totals = [$tithes, $offerings, $churchProjects, $propheticSeeds];
-
 
                 foreach ($totals as $total) {
                     echo $total . ",";
