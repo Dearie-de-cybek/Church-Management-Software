@@ -186,7 +186,7 @@
 
 
 
-    <script src="{{ asset('assets/js/table.js') }}"></script>
+    <script src="{{ asset('assets/js/app.js') }}"></script>
     <script src="{{ asset('assets/js/bootstrap.js') }}"></script>
 </body>
 
