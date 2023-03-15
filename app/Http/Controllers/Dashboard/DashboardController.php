@@ -42,7 +42,7 @@ class DashboardController extends Controller
 
 
         return view('dashboard.chart', compact('payments','offerings', 'tithes', 'churchProjects', 'propheticSeeds'));
->>>>>>> 6d313b529d7afa5ed1381f963b0c7345d64f1444
+
     }
 
     public function offering() {
