@@ -27,7 +27,7 @@ use App\Http\Controllers\AppointmentController;
 Route::get('/', function () {
     return view('welcome');
 });
- 
+
 Route::name('dashboard.')->prefix('dashboard')->group(function() {
     Route::get('', [DashboardController::class, 'index'])->name('dashboard');
     Route::get('approve/{id}', [PaymentController::class, 'approve'] )->name('approve');
