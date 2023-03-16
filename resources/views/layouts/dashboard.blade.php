@@ -384,7 +384,7 @@
         </a>
         <ul id="charts-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
           <li>
-            <a href="{{ route('dashboard.chart') }}">
+            {{-- <a href="{{ route('dashboard.chart') }}"> --}}
               <i class="bi bi-circle"></i><span>Chart.js</span>
             </a>
           </li>
