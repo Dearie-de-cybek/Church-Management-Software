@@ -303,18 +303,19 @@
         </a>
         <ul id="charts-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
           <li>
-            <a href="">
+            <a href="{{ route('dashboard.sermon.index') }}">
               <i class="bi bi-circle"></i><span>Sermons</span>
             </a>
           </li>
           <li>
-            <a href="">
-              <i class="bi bi-circle"></i><span>Prayers</span>
+            <a href="{{ route('dashboard.sermon.create-sermon') }}">
+              <i class="bi bi-circle"></i><span>Add Sermon</span>
             </a>
           </li>
+          <hr>
           <li>
             <a href="">
-              <i class="bi bi-circle"></i><span>Add Sermon</span>
+              <i class="bi bi-circle"></i><span>Prayers</span>
             </a>
           </li>
           </li>
@@ -365,18 +366,19 @@
         </a>
         <ul id="tables-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
           <li>
-            <a href="">
+            <a href="{{ route('dashboard.news.index') }}">
               <i class="bi bi-circle"></i><span>News</span>
             </a>
           </li>
           <li>
             <a href="">
-              <i class="bi bi-circle"></i><span>Events</span>
+              <i class="bi bi-circle"></i><span>Add News</span>
             </a>
           </li>
+          <hr>
           <li>
             <a href="">
-              <i class="bi bi-circle"></i><span>Add News</span>
+              <i class="bi bi-circle"></i><span>Events</span>
             </a>
           </li>
           <li>

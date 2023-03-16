@@ -81,9 +81,9 @@
     {{-- ------------------ Payment Form ------------------- --}}
 
     {{-- ------------------ News ------------------- --}}
-    <h1 class="text-center"><strong >News</strong></h1>
+        <h1 class="text-center"><strong >News</strong></h1>
         <div class="container">
-            <form method="POST" action="{{ route('dashboard.new') }}" enctype="multipart/form-data">
+            <form method="POST" action="{{ route('dashboard.news.new') }}" enctype="multipart/form-data">
                 @csrf
                 <label for="title" class="form-label">Title: </label>
                 <input type="text" name="title" id="title" class="form-control" required>
@@ -125,7 +125,7 @@
     {{-- ------------------ Sermons ------------------- --}}
         <h1 class="text-center"><strong >Sermon Form</strong></h1>
         <div class="container">
-            <form method="POST" action="{{ route('dashboard.sermons') }}" enctype="multipart/form-data">
+            <form method="POST" action="{{ route('dashboard.sermon.sermons') }}" enctype="multipart/form-data">
                 @csrf
                 <label for="name" class="form-label">Name: </label>
                 <input type="text" name="name" id="name" class="form-control" required>
@@ -147,7 +147,7 @@
     {{-- ------------------ Events ------------------- --}}
         <h1 class="text-center"><strong >Event Form</strong></h1>
         <div class="container">
-            <form method="POST" action="{{ route('dashboard.events') }}" enctype="multipart/form-data">
+            <form method="POST" action="{{ route('dashboard.event.events') }}" enctype="multipart/form-data">
                 @csrf
                 <label for="name" class="form-label">Name: </label>
                 <input type="text" name="name" id="name" class="form-control" required>
@@ -175,7 +175,7 @@
     {{-- ------------------ Event Category ------------------- --}}
         <h1 class="text-center"><strong >Event Category Form</strong></h1>
         <div class="container">
-            <form method="POST" action="{{ route('dashboard.eventCategories') }}" enctype="multipart/form-data">
+            <form method="POST" action="{{ route('dashboard.event.eventCategories') }}" enctype="multipart/form-data">
                 @csrf
                 <label for="name" class="form-label">Category Name: </label>
                 <input type="text" name="name" id="name" class="form-control" required>
@@ -209,12 +209,13 @@
             </form>
         </div>
     {{-- ------------------ Appointment ------------------- --}}
-<script>
-    $(document).ready(function() {
-  $('#myTable').DataTable();
-});
 
-</script>
+
+    <script>
+        $(document).ready(function() {
+        $('#myTable').DataTable();
+        });
+    </script>
 @endsection
 
 

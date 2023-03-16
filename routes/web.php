@@ -2,6 +2,8 @@
 
 use Carbon\Carbon;
 use App\Models\User;
+use App\Models\News;
+use App\Models\Event;
 use App\Models\Payment;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Route;
@@ -32,24 +34,27 @@ Route::name('dashboard.')->prefix('dashboard')->group(function() {
     Route::get('', [DashboardController::class, 'index'])->name('dashboard');
     Route::get('approve/{id}', [PaymentController::class, 'approve'] )->name('approve');
     Route::get('decline/{id}', [PaymentController::class, 'decline'] )->name('decline');
-    Route::get('stats', function(){
-        $usersCount = User::where('created_at', '>=', now()->subDays(30))->count();
-        $paymentsCount = Payment::where('created_at', '>=', now()->subDays(30))->count();
-        return view('dashboard.stats', ['usersCount' => $usersCount, 'paymentsCount' => $paymentsCount]);
+
+    Route::name('sermon.')->prefix('sermon')->group(function() {
+        Route::get('', [SermonController::class, 'index'])->name('index');
+        Route::get('create-sermon', [SermonController::class, 'create'])->name('create-sermon');
+        Route::post('sermon', [SermonController::class, 'store'])->name('sermons');
     });
-    Route::get('news', [NewsController::class, 'create'])->name('news');
-    Route::post('news', [NewsController::class, 'store'])->name('new');
 
-    Route::get('sermon', [SermonController::class, 'create'])->name('sermon');
-    Route::post('sermon', [SermonController::class, 'store'])->name('sermons');
+    Route::name('news.')->prefix('news')->group(function() {
+        Route::get('', [NewsController::class, 'index'])->name('index');
+        Route::get('news', [NewsController::class, 'create'])->name('news');
+        Route::post('news', [NewsController::class, 'store'])->name('new');
+    });
 
-    Route::get('event', [EventController::class, 'create'])->name('event');
-    Route::post('event', [EventController::class, 'store'])->name('events');
+    Route::name('event.')->prefix('event')->group(function() {
+        Route::get('', [EventController::class, 'index'])->name('index');
+        Route::get('event', [EventController::class, 'create'])->name('event');
+        Route::post('event', [EventController::class, 'store'])->name('events');
 
-    Route::get('eventCategory', [EventCategoryController::class, 'create'])->name('eventCategory');
-    Route::post('eventCategory', [EventCategoryController::class, 'store'])->name('eventCategories');
-
-
+        Route::get('eventCategory', [EventCategoryController::class, 'create'])->name('eventCategory');
+        Route::post('eventCategory', [EventCategoryController::class, 'store'])->name('eventCategories');
+    });
 
     Route::name('payment.')->prefix('payment')->group(function() {
         Route::get('', [DashboardController::class, 'payment'])->name('index');
