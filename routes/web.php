@@ -14,6 +14,7 @@ use App\Http\Controllers\SermonController;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\Dashboard\DashboardController;
 use App\Http\Controllers\AppointmentController;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,8 +31,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('login', [AllusersController::class, 'login'])->name('login');
-Route::get('register', [AllusersController::class, 'store'])->name('register');
+Route::post('login', [UserController::class, 'login'])->name('login');
+Route::post('register', [UserController::class, 'store'])->name('register');
 
 Route::name('dashboard.')->prefix('dashboard')->group(function() {
     Route::get('', [DashboardController::class, 'index'])->name('dashboard');

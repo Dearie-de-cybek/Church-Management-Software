@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\AllUser;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use Illuminate\Validation\Rule;
@@ -12,7 +12,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 
-class AllUserController extends Controller
+class UserController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -45,9 +45,9 @@ class AllUserController extends Controller
         $request->validate([
             'name' => 'required',
             'surname' => 'required',
-            'username' => 'required|unique:all_users,username',
-            'phone_number' => 'required|unique:all_users,phone_number',
-            'email' => 'required|email|unique:all_users,email',
+            'username' => 'required|unique:users,username',
+            'phone_number' => 'required|unique:users,phone_number',
+            'email' => 'required|email|unique:users,email',
             'password' => 'required|confirmed|min:8',
             'martial_status' => 'required',
             'nationality' => 'required',
@@ -57,7 +57,7 @@ class AllUserController extends Controller
 
         DB::beginTransaction();
 
-        $user = AllUser::create([
+        $user = User::create([
             'name' => $request->input('name'),
             'surname' => $request->input('surname'),
             'username' => $request->input('username'),
@@ -76,13 +76,58 @@ class AllUserController extends Controller
 
     }
 
+    public function editProfile(Request $request, $id)
+    {
+        $user = User::findOrFail($id);
+        $valid = $request->validate([
+            'name' => 'required',
+            'surname' => 'required',
+            'username' => ['required', Rule::unique('users')->ignore($user)],
+            'phone_number' => ['required', Rule::unique('users')->ignore($user)],
+            'email' => ['required', Rule::unique('users')->ignore($user)],
+            'password' => 'required|confirmed|min:8',
+            'martial_status' => 'required',
+            'nationality' => 'required',
+            'gender' => 'required',
+            'dob' => 'required',
+        ]);
+
+        if ($request->hasFile('image')) {
+            $user->update(array_merge($valid, ['image' => $request->file('image')->store('user_images', 'public')]));
+        }
+        else {
+            $user->update(array_merge($valid));
+        }
+        return redirect()->intended('home')->with('home.profile')->withInput($request->input())->with('message', 'Profile Updated');
+    }
+
+    public function login(Request $request)
+    {
+
+        //code...
+        $validateUser = $request->validate(
+            [
+                'email' => 'required|email',
+                'password' => 'required'
+            ]
+        );
+
+
+
+        if (Auth::attempt($request->only(['email', 'password']))) {
+            return redirect()->intended('home')->with('message', 'Login Success');
+        }
+
+        return redirect()->back()->with('message','Invalid username or password');
+    }
+
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\AllUser  $allUser
+     * @param  \App\Models\User  $User
      * @return \Illuminate\Http\Response
      */
-    public function show(AllUser $allUser)
+    public function show(User $User)
     {
         //
     }
@@ -90,10 +135,10 @@ class AllUserController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\AllUser  $allUser
+     * @param  \App\Models\User  $User
      * @return \Illuminate\Http\Response
      */
-    public function edit(AllUser $allUser)
+    public function edit(User $User)
     {
         //
     }
@@ -102,10 +147,10 @@ class AllUserController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\AllUser  $allUser
+     * @param  \App\Models\User  $User
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, AllUser $allUser)
+    public function update(Request $request, User $User)
     {
         //
     }
@@ -113,10 +158,10 @@ class AllUserController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\AllUser  $allUser
+     * @param  \App\Models\User  $User
      * @return \Illuminate\Http\Response
      */
-    public function destroy(AllUser $allUser)
+    public function destroy(User $User)
     {
         //
     }
