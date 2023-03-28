@@ -83,7 +83,7 @@
     {{-- ------------------ News ------------------- --}}
         <h1 class="text-center"><strong >News</strong></h1>
         <div class="container">
-            <form method="POST" action="{{ route('dashboard.news.new') }}" enctype="multipart/form-data">
+            <form method="POST" action="{{ route('dashboard.news.news') }}" enctype="multipart/form-data">
                 @csrf
                 <label for="title" class="form-label">Title: </label>
                 <input type="text" name="title" id="title" class="form-control" required>

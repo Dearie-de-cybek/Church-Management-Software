@@ -12,6 +12,7 @@ use App\Http\Controllers\ChartController;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\SermonController;
 use App\Http\Controllers\EventController;
+use App\Http\Controllers\EventCategoryController;
 use App\Http\Controllers\Dashboard\DashboardController;
 use App\Http\Controllers\AppointmentController;
 use App\Http\Controllers\UserController;
@@ -47,13 +48,16 @@ Route::name('dashboard.')->prefix('dashboard')->group(function() {
 
     Route::name('news.')->prefix('news')->group(function() {
         Route::get('', [NewsController::class, 'index'])->name('index');
-        Route::get('news', [NewsController::class, 'create'])->name('news');
-        Route::post('news', [NewsController::class, 'store'])->name('new');
+        Route::get('add-news', [NewsController::class, 'create'])->name('add-news');
+        Route::post('news', [NewsController::class, 'store'])->name('news');
+        Route::get('edit-news/{id}', [NewsController::class, 'edit'])->name('edit-news');
+        Route::post('edit-news/{id}', [NewsController::class, 'update'])->name('update-news');
+        Route::get('{id}', [NewsController::class, 'destroy'])->name('delete-news');
     });
 
     Route::name('event.')->prefix('event')->group(function() {
         Route::get('', [EventController::class, 'index'])->name('index');
-        Route::get('event', [EventController::class, 'create'])->name('event');
+        Route::get('add-event', [EventController::class, 'create'])->name('add-event');
         Route::post('event', [EventController::class, 'store'])->name('events');
 
         Route::get('eventCategory', [EventCategoryController::class, 'create'])->name('eventCategory');
