@@ -358,8 +358,8 @@
           </li>
         </ul>
       </li><!-- End News and Events Nav -->
-
-      {{-- <li class="nav-heading">Pages</li> --}}
+      <hr>
+      <li class="nav-heading">Tools</li>
 
       <li class="nav-item">
         <a class="nav-link collapsed" href="">
