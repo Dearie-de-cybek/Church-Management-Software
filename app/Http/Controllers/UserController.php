@@ -71,7 +71,7 @@ class UserController extends Controller
 
         ]);
         DB::commit();
-        return redirect()->intended('home')->with('message', 'Account Registered Success');
+        return redirect()->intended('dashboard')->with('message', 'Account Registered Success');
         DB::rollBack();
 
     }
@@ -98,7 +98,11 @@ class UserController extends Controller
         else {
             $user->update(array_merge($valid));
         }
-        return redirect()->intended('home')->with('home.profile')->withInput($request->input())->with('message', 'Profile Updated');
+        return redirect()->intended('dashboard')->with('dashboard')->withInput($request->input())->with('message', 'Profile Updated');
+    }
+
+    public function loginPage() {
+        return view('login');
     }
 
     public function login(Request $request)
@@ -115,7 +119,7 @@ class UserController extends Controller
 
 
         if (Auth::attempt($request->only(['email', 'password']))) {
-            return redirect()->intended('home')->with('message', 'Login Success');
+            return redirect()->intended('dashboard')->with('message', 'Login Success');
         }
 
         return redirect()->back()->with('message','Invalid username or password');

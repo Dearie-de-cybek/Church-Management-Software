@@ -32,8 +32,14 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::post('login', [UserController::class, 'login'])->name('login');
-Route::post('register', [UserController::class, 'store'])->name('register');
+Route::middleware(['guest'])->group( function () {
+    Route::get('church/admin/login', [UserController::class, 'loginPage'])->name('login');
+    Route::post('church/admin/login', [UserController::class, 'login'])->name('loginUser');
+    Route::post('register', [UserController::class, 'store'])->name('register');
+});
+
+Route::middleware('auth')->group(function () {
+
 
 Route::name('dashboard.')->prefix('dashboard')->group(function() {
     Route::get('', [DashboardController::class, 'index'])->name('dashboard');
@@ -80,4 +86,5 @@ Route::name('user.')->prefix('user')->group(function() {
 
     Route::get('appointment', [AppointmentController::class, 'create'])->name('appointment');
     Route::post('appointment', [AppointmentController::class, 'store'])->name('appointments');
+});
 });

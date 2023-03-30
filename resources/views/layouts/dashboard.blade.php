@@ -1,3 +1,5 @@
+@if (auth()->user()->is_admin == 1)
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -444,3 +446,8 @@
 
   {{-- datatable --}}
   <script src="{{ asset('assets/js/app.js') }}"></script>
+</body>
+
+@else
+    
+@endif

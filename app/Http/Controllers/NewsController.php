@@ -21,8 +21,9 @@ class NewsController extends Controller
     public function index()
     {
         //
+        $user = auth()->user();
         $news = News::all();
-        return view('dashboard.news_and_event.news.index', ['news' => $news]);
+        return view('dashboard.news_and_event.news.index', ['news' => $news], ['user' => $user]);
     }
 
     /**
@@ -33,7 +34,8 @@ class NewsController extends Controller
     public function create()
     {
         //
-        return view('dashboard.news_and_event.news.create');
+        $user = auth()->user();
+        return view('dashboard.news_and_event.news.create', ['user' => $user]);
     }
 
     /**
@@ -80,8 +82,9 @@ class NewsController extends Controller
     public function edit(News $news, $id)
     {
         //
+        $user = auth()->user();
         $news = News::findOrFail($id);
-        return view('dashboard.news_and_event.news.edit', ['news' => $news]);
+        return view('dashboard.news_and_event.news.edit', ['news' => $news], ['user' => $user]);
     }
 
     /**
