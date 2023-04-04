@@ -337,6 +337,7 @@
           <i class="bi bi-layout-text-window-reverse"></i><span>News and Events</span><i class="bi bi-chevron-down ms-auto"></i>
         </a>
         <ul id="tables-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+            <li class="nav-heading">News</li>
           <li>
             <a href="{{ route('dashboard.news.index') }}">
               <i class="bi bi-circle"></i><span>News</span>
@@ -347,7 +348,8 @@
               <i class="bi bi-circle"></i><span>Add News</span>
             </a>
           </li>
-          <hr>
+
+          <li class="nav-heading">Events</li>
           <li>
             <a href="{{ route('dashboard.event.index') }}">
               <i class="bi bi-circle"></i><span>Events</span>
@@ -361,6 +363,7 @@
         </ul>
       </li><!-- End News and Events Nav -->
       <hr>
+
       <li class="nav-heading">Tools</li>
 
       <li class="nav-item">
