@@ -16,6 +16,7 @@ use App\Http\Controllers\EventCategoryController;
 use App\Http\Controllers\Dashboard\DashboardController;
 use App\Http\Controllers\AppointmentController;
 use App\Http\Controllers\UserController;
+use Laravel\Fortify\Http\Controllers\AuthenticatedSessionController;
 
 /*
 |--------------------------------------------------------------------------
@@ -34,7 +35,9 @@ Route::get('/', function () {
 
 Route::middleware(['guest'])->group( function () {
     Route::get('church/admin/login', [UserController::class, 'loginPage'])->name('login');
-    Route::post('church/admin/login', [UserController::class, 'login'])->name('loginUser');
+    // Route::post('church/admin/login', [UserController::class, 'login'])->name('loginUser');
+    // Route::get('church/admin/login', [AuthenticatedSessionController::class, 'create'])->name('login');
+    Route::post('church/admin/login', [AuthenticatedSessionController::class, 'store'])->name('loginUser');
     Route::post('register', [UserController::class, 'store'])->name('register');
 });
 
