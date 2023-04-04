@@ -21,6 +21,8 @@ class EventController extends Controller
     public function index()
     {
         //
+        $events = Event::all();
+        return view('dashboard.news_and_event.event.index', ['events' => $events]);
     }
 
     /**
@@ -31,6 +33,7 @@ class EventController extends Controller
     public function create()
     {
         //
+        return view('dashboard.news_and_event.event.create');
     }
 
     /**

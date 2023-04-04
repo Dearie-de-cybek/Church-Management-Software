@@ -21,6 +21,8 @@ class SermonController extends Controller
     public function index()
     {
         //
+        $sermons = Sermon::all();
+        return view('dashboard.sermon_and_prayer.sermon.index', ['sermons' => $sermons]);
     }
 
     /**
@@ -31,6 +33,7 @@ class SermonController extends Controller
     public function create()
     {
         //
+        return view('dashboard.sermon_and_prayer.sermon.create');
     }
 
     /**
@@ -42,25 +45,19 @@ class SermonController extends Controller
     public function store(Request $request)
     {
         //
-        $request->validate([
+        $valid = $request->validate([
             'name' => 'required',
             'author' => 'required',
             'duration' => 'required',
-            'date' => 'required'
+            'date' => 'required',
+            'audio' => 'mimes:jpg,png,jpeg,mp4,mp3'
         ]);
 
-        DB::beginTransaction();
+        $audio = $request->file('audio')->store('images', 'public');
 
-        $somen = Sermon::create([
-            'name' => $request->input('name'),
-            'author' => $request->input('author'),
-            'duration' => $request->input('duration'),
-            'date' => $request->input('date')
-        ]);
+        Sermon::create(array_merge($valid, ['audio' => $audio]));
 
-        DB::commit();
-        return redirect()->back()->with('message', 'Payment Submitted Successfully');
-        DB::rollBack();
+        return redirect()->back()->with('message', 'Sermon Created Successfully');
     }
 
     /**
