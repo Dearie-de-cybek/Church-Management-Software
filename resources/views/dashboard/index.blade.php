@@ -169,7 +169,7 @@
         {{-- ------------------ Events ------------------- --}}
 
         {{-- ------------------ Event Category ------------------- --}}
-            <h1 class="text-center"><strong >Event Category Form</strong></h1>
+            {{-- <h1 class="text-center"><strong >Event Category Form</strong></h1>
             <div class="container">
                 <form method="POST" action="{{ route('dashboard.event.eventCategories') }}" enctype="multipart/form-data">
                     @csrf
@@ -181,7 +181,7 @@
 
                     <button class="btn btn-sm btn-outline-info mt-3" type="submit">Submit</button>
                 </form>
-            </div>
+            </div> --}}
         {{-- ------------------ Event Category ------------------- --}}
 
         {{-- ------------------ Appointment ------------------- --}}

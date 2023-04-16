@@ -21,6 +21,8 @@ class EventCategoryController extends Controller
     public function index()
     {
         //
+        $categories = EventCategory::all();
+        return view('dashboard.news_and_event.event_categories.index', ['categories' => $categories]);
     }
 
     /**
@@ -31,6 +33,7 @@ class EventCategoryController extends Controller
     public function create()
     {
         //
+        return view('dashboard.news_and_event.event_categories.create');
     }
 
     /**
@@ -44,9 +47,9 @@ class EventCategoryController extends Controller
         //
         $valid= $request->validate([
             'name' => 'required',
-            'slug' => 'required|unique:news',
+            'slug' => 'required|unique:event_categories',
         ]);
-        
+
         $slug = Str::slug($valid['slug'], '-');
 
         DB::beginTransaction();
@@ -54,7 +57,7 @@ class EventCategoryController extends Controller
         EventCategory::create(array_merge($valid,['slug' => $slug]));
 
         DB::commit();
-        return redirect()->back()->with('message', 'Event Category Created Submitted Successfully');
+        return redirect()->intended('dashboard.event-category')->with('message', 'Event Category Created Submitted Successfully');
         DB::rollBack();
     }
 
@@ -75,9 +78,12 @@ class EventCategoryController extends Controller
      * @param  \App\Models\EventCategory  $eventCategory
      * @return \Illuminate\Http\Response
      */
-    public function edit(EventCategory $eventCategory)
+    public function edit(EventCategory $eventCategory, $id)
     {
         //
+        $user = auth()->user();
+        $eventCategory = EventCategory::findOrFail($id);
+        return view('dashboard.news_and_event.event_categories.edit', ['eventCategory' => $eventCategory], ['user' => $user]);
     }
 
     /**
@@ -87,9 +93,23 @@ class EventCategoryController extends Controller
      * @param  \App\Models\EventCategory  $eventCategory
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, EventCategory $eventCategory)
+    public function update(Request $request, $id)
     {
         //
+        {
+        $eventCategory = EventCategory::findOrFail($id);
+        $valid = $request->validate([
+            'name' => ['required', 'max:255', 'min:5'],
+            'slug' => ['required', Rule::unique('event_categories')->ignore($eventCategory)]
+
+        ]);
+        $slug = Str::slug($valid['slug'], '-');
+         $eventCategory->update(array_merge($valid,['slug'=>$slug]));
+
+
+        // dd($valid);
+        return redirect()->intended('dashboard.event-category')->withInput($request->input())->with('message','Category Updated');
+    }
     }
 
     /**
@@ -98,8 +118,11 @@ class EventCategoryController extends Controller
      * @param  \App\Models\EventCategory  $eventCategory
      * @return \Illuminate\Http\Response
      */
-    public function destroy(EventCategory $eventCategory)
+    public function destroy(EventCategory $eventCategory, $id)
     {
         //
+        $news = EventCategory::findOrFail($id);
+        $news->delete();
+        return redirect()->back()->with('message', 'Message deleted Successfully');
     }
 }

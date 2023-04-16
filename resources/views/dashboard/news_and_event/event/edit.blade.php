@@ -1,9 +1,8 @@
 @extends('layouts.dashboard')
 
 @section('content')
-<h1 class="text-center"><strong >Add Event</strong></h1>
 <div class="container">
-    <form method="POST" action="{{ route('dashboard.event.events') }}" enctype="multipart/form-data">
+    <form method="POST" action="" enctype="multipart/form-data">
         @csrf
         <label for="name" class="form-label">Title: </label>
         <input type="text" name="name" id="name" class="form-control" required>
