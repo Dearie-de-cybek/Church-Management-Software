@@ -94,7 +94,12 @@ Route::middleware('auth')->group(function () {
         });
 
         Route::name('devotion.')->prefix('devotion')->group(function() {
-            Route::get('', [DevotionalController::class]);
+            Route::get('', [DevotionalController::class, 'index'])->name('index');
+            Route::get('add-devotion', [DevotionalController::class, 'create'])->name('add-devotion');
+            Route::post('devotion', [DevotionalController::class, 'store'])->name('devotion');
+            Route::get('edit-devotion/{id}', [DevotionalController::class, 'edit'])->name('edit-devotion');
+            Route::post('edit-devotion/{id}', [DevotionalController::class, 'update'])->name('update-devotion');
+            Route::get('{id}', [DevotionalController::class, 'destroy'])->name('delete-devotion');
         });
 
     });

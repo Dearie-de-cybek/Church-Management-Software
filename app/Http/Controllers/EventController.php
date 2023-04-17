@@ -118,7 +118,7 @@ class EventController extends Controller
     
     
             // dd($valid);
-            return redirect()->intended('dashboard.event')->withInput($request->input())->with('message','Category Updated');
+            return redirect()->intended('dashboard/event')->withInput($request->input())->with('message','Category Updated');
         }
     }
 
@@ -131,8 +131,8 @@ class EventController extends Controller
     public function destroy(Event $event, $id)
     {
         //
-        $news = Event::findOrFail($id);
-        $news->delete();
+        $event = Event::findOrFail($id);
+        $event->delete();
         return redirect()->back()->with('message', 'Message deleted Successfully');
     }
 }

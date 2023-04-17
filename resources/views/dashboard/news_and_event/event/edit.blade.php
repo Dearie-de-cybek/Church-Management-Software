@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="container">
-    <form method="POST" action="" enctype="multipart/form-data">
+    <form method="POST" action="{{ route('dashboard.event.update-event', $event->id) }}" enctype="multipart/form-data">
         @csrf
         <label for="name" class="form-label">Title: </label>
         <input type="text" name="name" id="name" class="form-control" required>

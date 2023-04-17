@@ -383,12 +383,12 @@
         <ul id="charts-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
             <li class="nav-heading">Devotionals</li>
           <li>
-            <a href="">
+            <a href="{{ route('dashboard.devotion.index') }}">
               <i class="bi bi-circle"></i><span>Devotionals</span>
             </a>
           </li>
           <li>
-            <a href="">
+            <a href="{{ route('dashboard.devotion.add-devotion') }}">
               <i class="bi bi-circle"></i><span>Add Devotionals</span>
             </a>
           </li>
