@@ -31,9 +31,11 @@ use Laravel\Fortify\Http\Controllers\AuthenticatedSessionController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+
+Route::get('', [DashboardController::class, 'home'])->name('home');
 
 Route::middleware(['guest'])->group( function () {
     Route::get('church/admin/login', [UserController::class, 'loginPage'])->name('login');

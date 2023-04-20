@@ -74,5 +74,7 @@ class DashboardController extends Controller
         return view('dashboard.payment.propheticSeed', compact('payments','offerings', 'tithes', 'churchProjects', 'propheticSeeds', 'user'));
     }
 
-
+    public function home() {
+        return view('index');
+    }
 }
