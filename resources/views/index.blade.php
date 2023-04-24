@@ -277,7 +277,6 @@
 
             </div>
           </section>
-          <i id="chat" class="logo-whatsapp"></i>
 
       </main>
 
