@@ -304,6 +304,7 @@
           <i class="bi bi-wallet2"></i><span>Payments</span><i class="bi bi-chevron-down ms-auto"></i>
         </a>
         <ul id="forms-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+            <li class="nav-heading">Payments</li>
           <li>
             <a href="{{ route('dashboard.payment.index') }}">
               <i class="bi bi-circle"></i><span>Overview</span>
@@ -337,6 +338,7 @@
           <i class="bi bi-layout-text-window-reverse"></i><span>News and Events</span><i class="bi bi-chevron-down ms-auto"></i>
         </a>
         <ul id="tables-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+            <li class="nav-heading">News</li>
           <li>
             <a href="{{ route('dashboard.news.index') }}">
               <i class="bi bi-circle"></i><span>News</span>
@@ -347,7 +349,8 @@
               <i class="bi bi-circle"></i><span>Events</span>
             </a>
           </li>
-          <hr>
+
+          <li class="nav-heading">Events</li>
           <li>
             <a href="{{ route('dashboard.event.index') }}">
               <i class="bi bi-circle"></i><span>Events</span>
@@ -358,9 +361,41 @@
               <i class="bi bi-circle"></i><span>Add Event</span>
             </a>
           </li>
+
+          <li class="nav-heading">Event Category</li>
+          <li>
+            <a href="{{ route('dashboard.event-category.index') }}">
+              <i class="bi bi-circle"></i><span>Event Categories</span>
+            </a>
+          </li>
+          <li>
+            <a href="{{ route('dashboard.event-category.eventCategory') }}">
+              <i class="bi bi-circle"></i><span>Add Event Categories</span>
+            </a>
+          </li>
         </ul>
       </li><!-- End News and Events Nav -->
+
+      <li class="nav-item">
+        <a class="nav-link collapsed" data-bs-target="#charts-nav" data-bs-toggle="collapse" href="#">
+            <i class="bi bi-journal-plus"></i><span>Devotional</span><i class="bi bi-chevron-down ms-auto"></i>
+        </a>
+        <ul id="charts-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+            <li class="nav-heading">Devotionals</li>
+          <li>
+            <a href="{{ route('dashboard.devotion.index') }}">
+              <i class="bi bi-circle"></i><span>Devotionals</span>
+            </a>
+          </li>
+          <li>
+            <a href="{{ route('dashboard.devotion.add-devotion') }}">
+              <i class="bi bi-circle"></i><span>Add Devotionals</span>
+            </a>
+          </li>
+        </ul>
+      </li><!-- End Devotional Nav -->
       <hr>
+
       <li class="nav-heading">Tools</li>
 
       <li class="nav-item">
@@ -449,5 +484,5 @@
 </body>
 
 @else
-    
+
 @endif

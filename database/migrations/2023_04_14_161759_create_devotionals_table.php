@@ -13,12 +13,14 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('appointments', function (Blueprint $table) {
+        Schema::create('devotionals', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('email');
-            $table->string('phone');
-            $table->string('message');
+            $table->string('opening_prayer');
+            $table->string('topic');
+            $table->string('bible_text');
+            $table->string('memory_verse');
+            $table->string('devotion');
+            $table->string('closing_prayer');
             $table->timestamps();
         });
     }
@@ -30,6 +32,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('appointments');
+        Schema::dropIfExists('devotionals');
     }
 };

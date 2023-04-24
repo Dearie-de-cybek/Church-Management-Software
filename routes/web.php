@@ -15,7 +15,10 @@ use App\Http\Controllers\EventController;
 use App\Http\Controllers\EventCategoryController;
 use App\Http\Controllers\Dashboard\DashboardController;
 use App\Http\Controllers\AppointmentController;
+use App\Http\Controllers\DevotionalController;
 use App\Http\Controllers\UserController;
+use App\Models\Devotional;
+use Laravel\Fortify\Http\Controllers\AuthenticatedSessionController;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,63 +31,86 @@ use App\Http\Controllers\UserController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+
+Route::get('', [DashboardController::class, 'home'])->name('home');
 
 Route::middleware(['guest'])->group( function () {
     Route::get('church/admin/login', [UserController::class, 'loginPage'])->name('login');
-    Route::post('church/admin/login', [UserController::class, 'login'])->name('loginUser');
+    // Route::post('church/admin/login', [UserController::class, 'login'])->name('loginUser');
+    // Route::get('church/admin/login', [AuthenticatedSessionController::class, 'create'])->name('login');
+    Route::post('church/admin/login', [AuthenticatedSessionController::class, 'store'])->name('loginUser');
     Route::post('register', [UserController::class, 'store'])->name('register');
 });
 
 Route::middleware('auth')->group(function () {
 
 
-Route::name('dashboard.')->prefix('dashboard')->group(function() {
-    Route::get('', [DashboardController::class, 'index'])->name('dashboard');
-    Route::get('approve/{id}', [PaymentController::class, 'approve'] )->name('approve');
-    Route::get('decline/{id}', [PaymentController::class, 'decline'] )->name('decline');
+    Route::name('dashboard.')->prefix('dashboard')->group(function() {
+        Route::get('', [DashboardController::class, 'index'])->name('dashboard');
+        Route::get('approve/{id}', [PaymentController::class, 'approve'] )->name('approve');
+        Route::get('decline/{id}', [PaymentController::class, 'decline'] )->name('decline');
 
-    Route::name('sermon.')->prefix('sermon')->group(function() {
-        Route::get('', [SermonController::class, 'index'])->name('index');
-        Route::get('create-sermon', [SermonController::class, 'create'])->name('create-sermon');
-        Route::post('sermon', [SermonController::class, 'store'])->name('sermons');
+        Route::name('sermon.')->prefix('sermon')->group(function() {
+            Route::get('', [SermonController::class, 'index'])->name('index');
+            Route::get('create-sermon', [SermonController::class, 'create'])->name('create-sermon');
+            Route::post('sermon', [SermonController::class, 'store'])->name('sermons');
+        });
+
+        Route::name('news.')->prefix('news')->group(function() {
+            Route::get('', [NewsController::class, 'index'])->name('index');
+            Route::get('add-news', [NewsController::class, 'create'])->name('add-news');
+            Route::post('news', [NewsController::class, 'store'])->name('news');
+            Route::get('edit-news/{id}', [NewsController::class, 'edit'])->name('edit-news');
+            Route::post('edit-news/{id}', [NewsController::class, 'update'])->name('update-news');
+            Route::get('{id}', [NewsController::class, 'destroy'])->name('delete-news');
+        });
+
+        Route::name('event.')->prefix('event')->group(function() {
+            Route::get('', [EventController::class, 'index'])->name('index');
+            Route::get('add-event', [EventController::class, 'create'])->name('add-event');
+            Route::post('event', [EventController::class, 'store'])->name('events');
+            Route::get('edit-event/{id}', [EventController::class, 'edit'])->name('edit-event');
+            Route::post('edit-event/{id}', [EventController::class, 'update'])->name('update-event');
+            Route::get('{id}', [EventController::class, 'destroy'])->name('delete-event');
+
+        });
+
+        Route::name('event-category.')->prefix('event-category')->group(function() {
+            Route::get('', [EventCategoryController::class, 'index'])->name('index');
+            Route::get('add-event-category', [EventCategoryController::class, 'create'])->name('eventCategory');
+            Route::post('eventCategory', [EventCategoryController::class, 'store'])->name('eventCategories');
+            Route::get('edit-event-category/{id}', [EventCategoryController::class, 'edit'])->name('edit-event-category');
+            Route::post('edit-event-category/{id}', [EventCategoryController::class, 'update'])->name('update-event-category');
+            Route::get('{id}', [EventCategoryController::class, 'destroy'])->name('delete-event');
+        });
+
+        Route::name('payment.')->prefix('payment')->group(function() {
+            Route::get('', [DashboardController::class, 'payment'])->name('index');
+            Route::get('offering', [DashboardController::class, 'offering'])->name('offering');
+            Route::get('tithe', [DashboardController::class, 'tithe'])->name('tithe');
+            Route::get('church-project', [DashboardController::class, 'churchProject'])->name('church-project');
+            Route::get('prophetic-seed', [DashboardController::class, 'propheticSeed'])->name('prophetic-seed');
+        });
+
+        Route::name('devotion.')->prefix('devotion')->group(function() {
+            Route::get('', [DevotionalController::class, 'index'])->name('index');
+            Route::get('add-devotion', [DevotionalController::class, 'create'])->name('add-devotion');
+            Route::post('devotion', [DevotionalController::class, 'store'])->name('devotion');
+            Route::get('edit-devotion/{id}', [DevotionalController::class, 'edit'])->name('edit-devotion');
+            Route::post('edit-devotion/{id}', [DevotionalController::class, 'update'])->name('update-devotion');
+            Route::get('{id}', [DevotionalController::class, 'destroy'])->name('delete-devotion');
+        });
+
     });
 
-    Route::name('news.')->prefix('news')->group(function() {
-        Route::get('', [NewsController::class, 'index'])->name('index');
-        Route::get('add-news', [NewsController::class, 'create'])->name('add-news');
-        Route::post('news', [NewsController::class, 'store'])->name('news');
-        Route::get('edit-news/{id}', [NewsController::class, 'edit'])->name('edit-news');
-        Route::post('edit-news/{id}', [NewsController::class, 'update'])->name('update-news');
-        Route::get('{id}', [NewsController::class, 'destroy'])->name('delete-news');
+    Route::name('user.')->prefix('user')->group(function() {
+        Route::get('payment', [PaymentController::class, 'create'])->name('payment');
+        Route::post('payment', [PaymentController::class, 'store'])->name('pay');
+
+        Route::get('appointment', [AppointmentController::class, 'create'])->name('appointment');
+        Route::post('appointment', [AppointmentController::class, 'store'])->name('appointments');
     });
-
-    Route::name('event.')->prefix('event')->group(function() {
-        Route::get('', [EventController::class, 'index'])->name('index');
-        Route::get('add-event', [EventController::class, 'create'])->name('add-event');
-        Route::post('event', [EventController::class, 'store'])->name('events');
-
-        Route::get('eventCategory', [EventCategoryController::class, 'create'])->name('eventCategory');
-        Route::post('eventCategory', [EventCategoryController::class, 'store'])->name('eventCategories');
-    });
-
-    Route::name('payment.')->prefix('payment')->group(function() {
-        Route::get('', [DashboardController::class, 'payment'])->name('index');
-        Route::get('offering', [DashboardController::class, 'offering'])->name('offering');
-        Route::get('tithe', [DashboardController::class, 'tithe'])->name('tithe');
-        Route::get('church-project', [DashboardController::class, 'churchProject'])->name('church-project');
-        Route::get('prophetic-seed', [DashboardController::class, 'propheticSeed'])->name('prophetic-seed');
-    });
-
-});
-
-Route::name('user.')->prefix('user')->group(function() {
-    Route::get('payment', [PaymentController::class, 'create'])->name('payment');
-    Route::post('payment', [PaymentController::class, 'store'])->name('pay');
-
-    Route::get('appointment', [AppointmentController::class, 'create'])->name('appointment');
-    Route::post('appointment', [AppointmentController::class, 'store'])->name('appointments');
-});
 });
