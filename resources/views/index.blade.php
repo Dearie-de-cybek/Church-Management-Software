@@ -26,7 +26,7 @@
                 <a class="main-nav-link" href="#app">Our App</a>
               </li>
               <li><a class="main-nav-link" href="#cta">Locate us</a></li>
-              <li><a class="main-nav-link nav-cta" href="#cta">Contact</a></li>
+              <li><a class="main-nav-link nav-cta" href="https://wa.link/iz6ls5">Contact</a></li>
             </ul>
           </nav>
 
@@ -114,7 +114,7 @@
                 src="{{asset('assets/images/peter.jpg')}}"
               />
               <blockquote class="testimonial-text">
-                  This is my day, This is my week, This is my moment, This is my time, where i failed yesterday, i will triumph this time, where i was defeated before, i cancel the defeat, every lack in my life is terminated, every negative condition is healed, every arrows from the enemy's camp, it's multiplied and returned to them, my star is shining, it cannot be deemed, i access and manifest the wisom of God in all i do, i am fruitful in all arears of life, i will fulfill my days and purpose here on earth, This is my year of "Higher Ground(2023 year proclamation)" and my month of total Recovery(Monthly proclamation) in Jesus name. Amen 🙏🏽
+                 Worship Arcade [The Community Church] Asaba held its inaugural service on the 12th day of October, 2014 due to the mandate given by God to Rev. Peter Kola Mayah whom he sent from Lagos to Asaba to pioneer a unique vision for the land of Delta to the world with the clear vision of <strong><u>VISION:</u>Raising Market-place Christains for all round societal relevance (Matt. 5:14,16).</strong> <strong><u>MISSION:</u> Positive, Practical, Systematic, Bible-based transformation in Character, Career, Relationship & Family (2Peter 1:3).</strong> The church kicked off from a shop at a plaza at 32 Summit road, with about 20 members. Today, to the glory of God, the church is structured into different unit and departments with membership in some hundreds; running two services in a well equipped hall at Inter-Bau Roundabout; AND STILL GROWING!!!
               </blockquote>
               <p class="testimonial-name">&mdash; Rev Peter Myah</p>
             </figure>
@@ -231,35 +231,36 @@
 
         <div class="container grid grid--4-cols main-feat">
           <div class="feature">
-            <ion-icon class="feature-icon" name="infinite-outline"></ion-icon>
+            <ion-icon class="feature-icon" name="card-outline"></ion-icon>
             <p class="feature-title">Easily Pay Tithe!</p>
             <p class="feature-text">
-              lorem ipsum dolor sit amet, monor kon conduit tos des re
-              ko polor doun andea.
+              With our app, paying your tithe has never been easier. Simply enter the amount and securely submit your payment using your preferred payment method.
             </p>
           </div>
           <div class="feature">
-            <ion-icon class="feature-icon" name="nutrition-outline"></ion-icon>
+            <ion-icon class="feature-icon" name="calendar-outline"></ion-icon>
             <p class="feature-title">Events & News</p>
             <p class="feature-text">
-              lorem ipsum dolor sit amet, monor kon conduit tos des re
-              ko polor doun andea.
+              Stay up to date with the latest news and events in your church community. Our app provides real-time updates on upcoming events, news, and important announcements.
             </p>
           </div>
           <div class="feature">
-            <ion-icon class="feature-icon" name="leaf-outline"></ion-icon>
+            <ion-icon class="feature-icon" name="receipt-outline"></ion-icon>
             <p class="feature-title">Payment History</p>
             <p class="feature-text">
-              lorem ipsum dolor sit amet, monor kon conduit tos des re
-              ko polor doun andea.
+              Keep track of your tithe payments with our convenient payment history feature. View your payment history anytime, anywhere, and never miss a payment again.
             </p>
           </div>
           <div class="feature">
-            <ion-icon class="feature-icon" name="pause-outline"></ion-icon>
+            <ion-icon class="feature-icon" name="menu-outline"></ion-icon>
             <p class="feature-title">Easy Access</p>
             <p class="feature-text">
-              lorem ipsum dolor sit amet, monor kon conduit tos des re
-              ko polor doun andea.
+              Our app provides easy access to all the features you need to manage your tithe payments and stay connected with your church community. Whether you're at home or on the go, our app is always just a tap away.
+
+
+
+
+
             </p>
           </div>
         </div>
@@ -276,7 +277,7 @@
 
             </div>
           </section>
-
+          <i id="chat" class="logo-whatsapp"></i>
 
       </main>
 
@@ -316,14 +317,13 @@
               <p class="footer-heading"><strong>Contact us</strong></p>
               <address class="contacts">
                 <p class="address">
-                  623 Harrison St., 2nd Floor, San Francisco, CA 94107
+                  Worship Arcade, FirstBank, by Interbau Roundabout, Isieke 320242, Asaba, Delta
                 </p>
                 <p>
-                  <a class="footer-link" href="tel:415-201-6370">415-201-6370</a
+                  <a class="footer-link" href="tel:2348146046680">+234-814-604-6680</a
                   ><br />
-                  <a class="footer-link" href="mailto:support@worshiparcade.com"
-                    >support@worshiparcade.com</a
-                  >
+                  
+                  
                 </p>
               </address>
             </div>
@@ -341,7 +341,6 @@
             <nav class="nav-col">
               <p class="footer-heading"><strong>Church</strong></p>
               <ul class="footer-nav">
-                <li><a class="footer-link" href="#">About Worshiparcade</a></li>
                 <li><a class="footer-link" href="#">Partner with us</a></li>
                 <li><a class="footer-link" href="#">Community</a></li>
               </ul>
