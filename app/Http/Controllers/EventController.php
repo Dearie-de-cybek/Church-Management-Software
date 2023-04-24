@@ -8,6 +8,7 @@ use Illuminate\Support\Str;
 use Illuminate\Validation\Rule;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
+use App\Models\EventCategory;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 
@@ -21,6 +22,8 @@ class EventController extends Controller
     public function index()
     {
         //
+        $events = Event::all();
+        return view('dashboard.news_and_event.event.index', ['events' => $events]);
     }
 
     /**
@@ -31,6 +34,8 @@ class EventController extends Controller
     public function create()
     {
         //
+        $event_categories = EventCategory::all();
+        return view('dashboard.news_and_event.event.create', ['event_categories' => $event_categories]);
     }
 
     /**
@@ -44,8 +49,8 @@ class EventController extends Controller
         //
         $request->validate([
             'name' => 'required',
-            'author' => 'required',
-            'event_category_id' => 'required',
+            'description' => 'required',
+            'event_categories' => 'required|exists:event_categories,id',
             'date' => 'required'
         ]);
 
@@ -53,8 +58,8 @@ class EventController extends Controller
 
         $event = Event::create([
             'name' => $request->input('name'),
-            'author' => $request->input('author'),
-            'event_category_id' => $request->input('event_category_id'),
+            'description' => $request->input('description'),
+            'event_categories' => $request->input('event_categories'),
             'date' => $request->input('date')
         ]);
 
@@ -80,9 +85,13 @@ class EventController extends Controller
      * @param  \App\Models\Event  $event
      * @return \Illuminate\Http\Response
      */
-    public function edit(Event $event)
+    public function edit(Event $event, $id)
     {
         //
+        $user = auth()->user();
+        $event_categories = EventCategory::all();
+        $event = Event::findOrFail($id);
+        return view('dashboard.news_and_event.event.edit', compact('event', 'user', 'event_categories'));
     }
 
     /**
@@ -92,9 +101,25 @@ class EventController extends Controller
      * @param  \App\Models\Event  $event
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Event $event)
+    public function update(Request $request, $id)
     {
         //
+        {
+            $event = Event::findOrFail($id);
+            $valid = $request->validate([
+                'name' => 'required',
+                'description' => 'required',
+                'event_categories' => 'required|exists:event_categories,id',
+                'date' => 'required'
+    
+            ]);
+
+            $event->update(array_merge($valid));
+    
+    
+            // dd($valid);
+            return redirect()->intended('dashboard/event')->withInput($request->input())->with('message','Category Updated');
+        }
     }
 
     /**
@@ -103,8 +128,11 @@ class EventController extends Controller
      * @param  \App\Models\Event  $event
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Event $event)
+    public function destroy(Event $event, $id)
     {
         //
+        $event = Event::findOrFail($id);
+        $event->delete();
+        return redirect()->back()->with('message', 'Message deleted Successfully');
     }
 }

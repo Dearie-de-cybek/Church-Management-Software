@@ -1,3 +1,5 @@
+@if (auth()->user()->is_admin == 1)
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -5,7 +7,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Admin - Chruch Arcade</title>
+  <title>Admin - Worship Arcade</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -298,39 +300,11 @@
       </li><!-- End Dashboard Nav -->
 
       <li class="nav-item">
-        <a class="nav-link collapsed" data-bs-target="#charts-nav" data-bs-toggle="collapse" href="#">
-          <i class="bi bi-journal-plus"></i><span>Sermons and Prayers</span><i class="bi bi-chevron-down ms-auto"></i>
-        </a>
-        <ul id="charts-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
-          <li>
-            <a href="">
-              <i class="bi bi-circle"></i><span>Sermons</span>
-            </a>
-          </li>
-          <li>
-            <a href="">
-              <i class="bi bi-circle"></i><span>Prayers</span>
-            </a>
-          </li>
-          <li>
-            <a href="">
-              <i class="bi bi-circle"></i><span>Add Sermon</span>
-            </a>
-          </li>
-          </li>
-          <li>
-            <a href="">
-              <i class="bi bi-circle"></i><span>Add Prayer</span>
-            </a>
-          </li>
-        </ul>
-      </li><!-- End Sermons and Prayers Nav -->
-
-      <li class="nav-item">
         <a class="nav-link collapsed" data-bs-target="#forms-nav" data-bs-toggle="collapse" href="#">
           <i class="bi bi-wallet2"></i><span>Payments</span><i class="bi bi-chevron-down ms-auto"></i>
         </a>
         <ul id="forms-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+            <li class="nav-heading">Payments</li>
           <li>
             <a href="{{ route('dashboard.payment.index') }}">
               <i class="bi bi-circle"></i><span>Overview</span>
@@ -364,62 +338,65 @@
           <i class="bi bi-layout-text-window-reverse"></i><span>News and Events</span><i class="bi bi-chevron-down ms-auto"></i>
         </a>
         <ul id="tables-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+            <li class="nav-heading">News</li>
           <li>
-            <a href="">
+            <a href="{{ route('dashboard.news.index') }}">
               <i class="bi bi-circle"></i><span>News</span>
             </a>
           </li>
           <li>
             <a href="">
-              <i class="bi bi-circle"></i><span>Data Tables</span>
+              <i class="bi bi-circle"></i><span>Events</span>
             </a>
           </li>
-        </ul>
-      </li><!-- End Tables Nav -->
 
-      @livewireStyles
-      <li class="nav-item">
-        <a class="nav-link collapsed" data-bs-target="#charts-nav" data-bs-toggle="collapse" href="#">
-          <i class="bi bi-bar-chart"></i><span>Charts</span><i class="bi bi-chevron-down ms-auto"></i>
-        </a>
-        <ul id="charts-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+          <li class="nav-heading">Events</li>
           <li>
-            {{-- <a href="{{ route('dashboard.chart') }}"> --}}
+            <a href="{{ route('dashboard.chart') }}">
               <i class="bi bi-circle"></i><span>Chart.js</span>
             </a>
           </li>
           <li>
-            <a href="">
-              <i class="bi bi-circle"></i><span>Add News</span>
+            <a href="{{ route('dashboard.event.add-event') }}">
+              <i class="bi bi-circle"></i><span>Add Event</span>
+            </a>
+          </li>
+
+          <li class="nav-heading">Event Category</li>
+          <li>
+            <a href="{{ route('dashboard.event-category.index') }}">
+              <i class="bi bi-circle"></i><span>Event Categories</span>
             </a>
           </li>
           <li>
-            <a href="">
-              <i class="bi bi-circle"></i><span>Add Event</span>
+            <a href="{{ route('dashboard.event-category.eventCategory') }}">
+              <i class="bi bi-circle"></i><span>Add Event Categories</span>
             </a>
           </li>
         </ul>
       </li><!-- End News and Events Nav -->
 
       <li class="nav-item">
-        <a class="nav-link collapsed" data-bs-target="#icons-nav" data-bs-toggle="collapse" href="#">
-          <i class="bi bi-calendar-check"></i><span>Appointments and Schedules</span><i class="bi bi-chevron-down ms-auto"></i>
+        <a class="nav-link collapsed" data-bs-target="#charts-nav" data-bs-toggle="collapse" href="#">
+            <i class="bi bi-journal-plus"></i><span>Devotional</span><i class="bi bi-chevron-down ms-auto"></i>
         </a>
-        <ul id="icons-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+        <ul id="charts-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+            <li class="nav-heading">Devotionals</li>
           <li>
-            <a href="">
-              <i class="bi bi-circle"></i><span>Appointments</span>
+            <a href="{{ route('dashboard.devotion.index') }}">
+              <i class="bi bi-circle"></i><span>Devotionals</span>
             </a>
           </li>
           <li>
-            <a href="">
-              <i class="bi bi-circle"></i><span>Schedules</span>
+            <a href="{{ route('dashboard.devotion.add-devotion') }}">
+              <i class="bi bi-circle"></i><span>Add Devotionals</span>
             </a>
           </li>
         </ul>
-      </li><!-- End Appointment and Schedule Nav -->
+      </li><!-- End Devotional Nav -->
+      <hr>
 
-      <li class="nav-heading">Pages</li>
+      <li class="nav-heading">Tools</li>
 
       <li class="nav-item">
         <a class="nav-link collapsed" href="">
@@ -488,7 +465,6 @@
   <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
   <!-- Vendor JS Files -->
-  @livewireScripts
   <script src="{{asset('assets/vendor/apexcharts/apexcharts.min.js')}}"></script>
   <script src="{{asset('assets/vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
   <script src="{{asset('assets/vendor/chart.js/chart.min.js')}}"></script>
@@ -505,3 +481,8 @@
 
   {{-- datatable --}}
   <script src="{{ asset('assets/js/app.js') }}"></script>
+</body>
+
+@else
+
+@endif

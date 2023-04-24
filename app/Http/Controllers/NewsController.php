@@ -21,6 +21,9 @@ class NewsController extends Controller
     public function index()
     {
         //
+        $user = auth()->user();
+        $news = News::all();
+        return view('dashboard.news_and_event.news.index', ['news' => $news], ['user' => $user]);
     }
 
     /**
@@ -31,6 +34,8 @@ class NewsController extends Controller
     public function create()
     {
         //
+        $user = auth()->user();
+        return view('dashboard.news_and_event.news.create', ['user' => $user]);
     }
 
     /**
@@ -54,7 +59,7 @@ class NewsController extends Controller
 
         News::create(array_merge($valid,['slug' => $slug, 'image' => $img_dir]));
 
-        return redirect()->back()->with('message', 'News and Events Created Successfully');
+        return redirect()->intended('dashboard.news')->with('message', 'News and Events Created Successfully');
     }
 
     /**
@@ -74,9 +79,12 @@ class NewsController extends Controller
      * @param  \App\Models\News  $news
      * @return \Illuminate\Http\Response
      */
-    public function edit(News $news)
+    public function edit(News $news, $id)
     {
         //
+        $user = auth()->user();
+        $news = News::findOrFail($id);
+        return view('dashboard.news_and_event.news.edit', ['news' => $news], ['user' => $user]);
     }
 
     /**
@@ -86,9 +94,26 @@ class NewsController extends Controller
      * @param  \App\Models\News  $news
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, News $news)
+    public function update(Request $request, $id)
     {
         //
+        {
+            $news = News::findOrFail($id);
+            $valid = $request->validate([
+                'title' => ['required', Rule::unique('news')->ignore($news)],
+                'description' => 'required',
+                'slug' => ['required', Rule::unique('news')->ignore($news)],
+                'image' => 'mimes:jpg,png,jpeg,mp4'
+            ]);
+
+            if ($request->hasFile('image')) {
+                $news->update(array_merge($valid, ['image' => $request->file('image')->store('user_images', 'public')]));
+            }
+            else {
+                $news->update(array_merge($valid));
+            }
+            return redirect()->intended('dashboard.news')->with('message', 'News Successfully Updated');
+        }
     }
 
     /**
@@ -97,8 +122,11 @@ class NewsController extends Controller
      * @param  \App\Models\News  $news
      * @return \Illuminate\Http\Response
      */
-    public function destroy(News $news)
+    public function destroy(News $news, $id)
     {
         //
+        $news = News::findOrFail($id);
+        $news->delete();
+        return redirect()->back()->with('message', 'Message deleted Successfully');
     }
 }

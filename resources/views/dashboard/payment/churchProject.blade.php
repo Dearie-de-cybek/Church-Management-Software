@@ -52,14 +52,9 @@
 
                         </td>
                         <td>
-                            <a href="{{ route('dashboard.approve', $payment->id) }}" class="btn btn-sm btn-outline-success m-1" onclick="geek()">Approve</a>
-                            <a href="{{ route('dashboard.decline', $payment->id) }}" class="btn btn-sm btn-outline-danger m-1" onclick="geek()">Decline</a>
+                            <a href="{{ route('dashboard.approve', $payment->id) }}" class="btn btn-sm btn-outline-success m-1" >Approve</a>
+                            <a href="{{ route('dashboard.decline', $payment->id) }}" class="btn btn-sm btn-outline-danger m-1" >Decline</a>
 
-                            <script>
-                                function geek() {
-                                    confirm(`All you sure you want to Finalize the Payment Note: This change cannot be reversed`);
-                                }
-                            </script>
                         </td>
                     </tr>
                     @endif
