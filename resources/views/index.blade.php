@@ -47,7 +47,7 @@
                   Where we believe in sharing the love of God with everyone we meet,
                  Whether you're a long-time member of our congregation or a first-time visitor, we are honored to have you here with us.
                 </p>
-                <a href="#cta" class="btn btn--full margin-right-sm"
+                <a href="https://wa.link/iz6ls5" target="_blank" class="btn btn--full margin-right-sm"
                   >Worship with us</a
                 >
 
@@ -95,8 +95,7 @@
                 </p>
               </div>
             </div>
-
-
+           <a href="https://wa.link/iz6ls5"><ion-icon  class="feature-icon" id="chat" name="logo-whatsapp">Give us a call!</ion-icon></a> 
         </section>
 
 
@@ -277,6 +276,7 @@
 
             </div>
           </section>
+       
 
       </main>
 
@@ -348,5 +348,6 @@
 
           </div>
         </footer>
+        
     </body>
 </html>

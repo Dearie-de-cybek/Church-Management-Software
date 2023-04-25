@@ -152,7 +152,7 @@
       opacity: 0;
 
       /* 2) Make it unaccessible to mouse and keyboard */
-      pointer-events: none;
+      
 
       /* 3) Hide it from screen readers */
       visibility: hidden;
@@ -160,7 +160,6 @@
 
     .nav-open .main-nav {
       opacity: 1;
-      pointer-events: auto;
       visibility: visible;
       transform: translateX(0);
     }

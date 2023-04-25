@@ -29,11 +29,14 @@
     font-weight: 400;
     color: #555;
     overflow-x: hidden;
+    overflow: hidden;
+    position: relative;
   }
 
   .container {
     /* margin: 10px; */
     width: 100%;
+    position: relative;
   }
 
 
@@ -68,6 +71,15 @@
     display: inline-block;
     padding: 16px 32px;
     border-radius: 9px;
+  }
+
+  #chat {
+    cursor: pointer;
+    position: absolute;
+    bottom: 50px;
+    right: 50px;
+    color: green;
+    background-color: lightgreen;
   }
 
   h2 {
