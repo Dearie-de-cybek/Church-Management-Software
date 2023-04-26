@@ -73,14 +73,60 @@
     border-radius: 9px;
   }
 
-  #chat {
-    cursor: pointer;
-    position: absolute;
-    bottom: 50px;
-    right: 50px;
-    color: green;
-    background-color: lightgreen;
+  .social {
+    position: fixed;
+    top: 100px;
+    right: 20px;
+    z-index: 1;
   }
+
+  .social a {
+    text-decoration: none;
+    color: #570101;
+    font-size: 15px;
+    text-align: center;
+  }
+  .social ul {
+    padding: 10px;
+    justify-items: left;
+    /* transform: translate(-270px, 0); */
+  }
+  .social ul li {
+    display: block;
+    margin: 2px;
+    background: rgba(219, 79, 79, 0.548);
+    width: 200px;
+    text-align: left;
+    padding: 10px;
+    border-radius: 30px 0px 0px 30px;
+    transition: all 1s;
+  }
+  .social ul li:hover {
+    transform: translate(-110px, 0);
+    background: rgba(87, 0, 0, 0.205);
+  }
+  .social ul li:hover a {
+    color: #767676;
+  }
+  .social ul li:hover ion-icon {
+    color: #fff;
+    background: rgba(104, 1, 1, 0.219);
+    transform: rotate(360deg);
+    transition: all 1s;
+  }
+  .social ul li ion-icon {
+    margin-left: 5px;
+    color: #767676;
+    background: #fff;
+    padding: 10px;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    font-size: 20px;
+    background: #ffffff;
+    transform: rotate(0deg);
+  }
+  
 
   h2 {
     font-size: 44px;

@@ -36,12 +36,24 @@
           </button>
         </header>
 
+        <div class="social">
+
+          <ul>
+            <li><a href="https://www.youtube.com/@worshiparcadetv5114" target="_blank">Youtube <ion-icon  class="feature-icon"  name="logo-youtube"></ion-icon></a></li>
+            <li><a href="https://web.facebook.com/worshiparcade/?_rdc=1&_rdr" target="_blank">Facebook <ion-icon  class="feature-icon"  name="logo-facebook"></ion-icon></a></li>
+            <li><a href="https://repemaresources.com/?fbclid=IwAR3NyqRG0NYsQFraC61Byb4k5_cTVWY1cXy62Mw1Wg535M9IOC3u6sKOO0Y" target="_blank">Get book <ion-icon  class="feature-icon"  name="book"></ion-icon></a></li>
+           <li><a href="https://wa.link/iz6ls5" target="_blank">Chat us<ion-icon  class="feature-icon"  name="logo-whatsapp"></ion-icon></a></li>
+          </ul>
+
+        </div>
+        
+
         <main>
           <section class="section-hero">
             <div class="hero">
               <div class="hero-text-box">
                 <h1 class="heading-primary">
-                  Welcome to Worship Arcade Community.
+                  Welcome to WORSHIP ARCADE (The Community Church) Asaba.
                 </h1>
                 <p class="hero-description">
                   Where we believe in sharing the love of God with everyone we meet,
@@ -95,7 +107,7 @@
                 </p>
               </div>
             </div>
-           <a href="https://wa.link/iz6ls5"><ion-icon  class="feature-icon" id="chat" name="logo-whatsapp">Give us a call!</ion-icon></a> 
+            
         </section>
 
 
@@ -207,7 +219,7 @@
         <div class="container">
           <span class="subheading app-head">Our App</span>
           <h2 class="heading-secondary app-head">
-            Releasing our Financial Tithing App
+            Introducing our Financial  App
           </h2>
         </div>
 
