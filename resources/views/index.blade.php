@@ -26,7 +26,7 @@
                 <a class="main-nav-link" href="#app">Our App</a>
               </li>
               <li><a class="main-nav-link" href="#cta">Locate us</a></li>
-              <li><a class="main-nav-link nav-cta" href="https://wa.link/iz6ls5">Contact</a></li>
+              <li><a class="main-nav-link nav-cta" href="https://wa.link/iz6ls5" target="_blank">Contact</a></li>
             </ul>
           </nav>
 
@@ -93,9 +93,9 @@
                 <p class="step-description app-head1">
                   This is my day, This is my week, This is my moment, This is my time, where i failed yesterday, i will triumph this time, where i was defeated before, i cancel the defeat, every lack in my life is terminated, every negative condition is healed, every arrows from the enemy's camp, it's multiplied and returned to them, my star is shining, it cannot be deemed, i access and manifest the wisom of God in all i do, i am fruitful in all arears of life, i will fulfill my days and purpose here on earth, This is my year of "Higher Ground(2023 year proclamation)" and my month of total Recovery(Monthly proclamation) in Jesus name. Amen 🙏🏽
                 </p>
-              </div>
             </div>
-           <a href="https://wa.link/iz6ls5"><ion-icon  class="feature-icon" id="chat" name="logo-whatsapp">Give us a call!</ion-icon></a> 
+        </div>
+        <a href="https://wa.link/iz6ls5"><ion-icon  class="feature-icon" id="chat" name="logo-whatsapp">Give us a call!</ion-icon></a>
         </section>
 
 
@@ -276,7 +276,7 @@
 
             </div>
           </section>
-       
+
 
       </main>
 
@@ -321,8 +321,8 @@
                 <p>
                   <a class="footer-link" href="tel:2348146046680">+234-814-604-6680</a
                   ><br />
-                  
-                  
+
+
                 </p>
               </address>
             </div>
@@ -348,6 +348,6 @@
 
           </div>
         </footer>
-        
+
     </body>
 </html>
