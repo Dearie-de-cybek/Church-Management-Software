@@ -352,8 +352,8 @@
 
           <li class="nav-heading">Events</li>
           <li>
-            <a href="{{ route('dashboard.chart') }}">
-              <i class="bi bi-circle"></i><span>Chart.js</span>
+            <a href="{{ route('dashboard.event.index') }}">
+              <i class="bi bi-circle"></i><span>Events</span>
             </a>
           </li>
           <li>

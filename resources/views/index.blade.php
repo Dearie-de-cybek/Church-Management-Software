@@ -26,7 +26,7 @@
                 <a class="main-nav-link" href="#app">Our App</a>
               </li>
               <li><a class="main-nav-link" href="#cta">Locate us</a></li>
-              <li><a class="main-nav-link nav-cta" href="https://wa.link/iz6ls5">Contact</a></li>
+              <li><a class="main-nav-link nav-cta" href="https://wa.link/iz6ls5" target="_blank">Contact</a></li>
             </ul>
           </nav>
 
@@ -107,7 +107,7 @@
                 </p>
               </div>
             </div>
-            
+           <a href="https://wa.link/iz6ls5"><ion-icon  class="feature-icon" id="chat" name="logo-whatsapp">Give us a call!</ion-icon></a> 
         </section>
 
 
@@ -288,7 +288,7 @@
 
             </div>
           </section>
-       
+
 
       </main>
 
@@ -333,8 +333,8 @@
                 <p>
                   <a class="footer-link" href="tel:2348146046680">+234-814-604-6680</a
                   ><br />
-                  
-                  
+
+
                 </p>
               </address>
             </div>
@@ -360,6 +360,6 @@
 
           </div>
         </footer>
-        
+
     </body>
 </html>

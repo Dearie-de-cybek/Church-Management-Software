@@ -27,24 +27,6 @@ class DashboardController extends Controller
         $churchProjects = Payment::all('payment', 'amount', 'status')->where('payment', 'Church Project')->where('status', 'Approved')->sum('amount');
         $propheticSeeds = Payment::all('payment', 'amount', 'status')->where('payment', 'Prophetic Seed')->where('status', 'Approved')->sum('amount');
 
-        $myArray = array('apple', 'banana', 'orange', '700');
-        $lastItem = '';
-        $totalItems = count($myArray);
-        $i = 0;
-
-        foreach ($myArray as $item) {
-            $lastItem = $item;
-            if (++$i === $totalItems) {
-                // This is the last iteration
-                // Do any additional processing here
-            }
-        }
-
-        echo $lastItem; // Outputs "orange"
-
-
-        return view('dashboard.chart', compact('payments','offerings', 'tithes', 'churchProjects', 'propheticSeeds'));
-
 
         return view('dashboard.payment.index', compact('payments','offerings', 'tithes', 'churchProjects', 'propheticSeeds', 'user'));
     }
