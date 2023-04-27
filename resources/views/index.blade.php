@@ -44,7 +44,7 @@
             <li><a href="https://repemaresources.com/?fbclid=IwAR3NyqRG0NYsQFraC61Byb4k5_cTVWY1cXy62Mw1Wg535M9IOC3u6sKOO0Y" target="_blank">Get book <ion-icon  class="feature-icon"  name="book"></ion-icon></a></li>
            <li><a href="https://wa.link/iz6ls5" target="_blank">Chat us<ion-icon  class="feature-icon"  name="logo-whatsapp"></ion-icon></a></li>
           </ul>
-
+ 
         </div>
         
 
@@ -266,7 +266,7 @@
             <ion-icon class="feature-icon" name="menu-outline"></ion-icon>
             <p class="feature-title">Easy Access</p>
             <p class="feature-text">
-              Our app provides easy access to all the features you need to manage your tithe payments and stay connected with your church community. Whether you're at home or on the go, our app is always just a tap away.
+            Easily pay your offerings, drop prophetic seeds, make donations and contribute to the church building project
 
 
 
