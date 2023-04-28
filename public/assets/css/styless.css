@@ -73,59 +73,81 @@
     border-radius: 9px;
   }
 
-  .social {
+  .social-sharing {
     position: fixed;
-    top: 100px;
-    right: 20px;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: #e5cccc;
+    width: 60px;
+    padding: 10px;
+    z-index: 9999;
+    }
+                          
+  .social-sharing a {
+    margin-bottom: 10px;
+    color: #7D0202;
+    padding: 5px;
+    text-align: center;
+    border-bottom: 1px solid black;
+    position: relative;
+    overflow: hidden; /* Add overflow property */
+  }
+  
+  .social-sharing a::before {
+    content: "Reach us";
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.8);
+    transform: translateY(-100%); /* Move the text up by 100% */
+    transition: transform 0.2s ease-in-out; /* Add transition */
+  }
+  
+  .social-sharing a:hover::before,
+  .social-sharing a:focus::before {
+    transform: translateY(0); /* Move the text down by 100% on hover and focus */
+  }
+  
+  .social-sharing a ion-icon {
+    font-size: 24px;
+    transition: transform 0.2s ease-in-out;
+  }
+  
+  .social-sharing a:hover ion-icon,
+  .social-sharing a:focus ion-icon {
+    transform: scale(1.2);
+    opacity: 0
+  }
+  
+  .social-icons a[data-tooltip="Buy Books"]::after {
+    content: "Get Resources";
+    position: absolute;
+    top: -20px;
+    left: -40px;
+    font-size: 14px;
+    color: #fff;
+    background-color: #333;
+    padding: 5px;
+    border-radius: 5px;
+    opacity: 0;
+    transition: all 0.3s ease-in-out;
     z-index: 1;
   }
- 
-  .social a {
-    text-decoration: none;
-    color: #570101;
-    font-size: 15px;
-    text-align: center;
+  
+  .social-icons a[data-tooltip="Buy Books"]:hover::after {
+    opacity: 1;
+    transform: translateX(-60px);
   }
-  .social ul {
-    padding: 10px;
-    justify-items: left;
-    /* transform: translate(-270px, 0); */
-  }
-  .social ul li {
-    display: block;
-    margin: 2px;
-    background: rgba(219, 79, 79, 0.548);
-    width: 200px;
-    text-align: left;
-    padding: 10px;
-    border-radius: 30px 0px 0px 30px;
-    transition: all 1s;
-  }
-  .social ul li:hover {
-    transform: translate(-110px, 0);
-    background: rgba(87, 0, 0, 0.205);
-  }
-  .social ul li:hover a {
-    color: #767676;
-  }
-  .social ul li:hover ion-icon {
-    color: #fff;
-    background: rgba(104, 1, 1, 0.219);
-    transform: rotate(360deg);
-    transition: all 1s;
-  }
-  .social ul li ion-icon {
-    margin-left: 5px;
-    color: #767676;
-    background: #fff;
-    padding: 10px;
-    border-radius: 50%;
-    width: 20px;
-    height: 20px;
-    font-size: 20px;
-    background: #ffffff;
-    transform: rotate(0deg);
-  }
+  
   
 
   h2 {
@@ -401,8 +423,6 @@
     text-align: center;
     margin-bottom: 4.8rem;
   }
-
-
 
 
   .feature-icon {

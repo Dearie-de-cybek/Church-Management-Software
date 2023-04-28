@@ -16,7 +16,7 @@ const allLinks = document.querySelectorAll("a:link");
 
 allLinks.forEach(function (link) {
   link.addEventListener("click", function (e) {
-    e.preventDefault();
+    
     const href = link.getAttribute("href");
 
     // Scroll back to top

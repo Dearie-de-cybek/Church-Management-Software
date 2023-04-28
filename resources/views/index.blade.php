@@ -36,17 +36,21 @@
           </button>
         </header>
 
-        <div class="social">
-
-          <ul>
-            <li><a href="https://www.youtube.com/@worshiparcadetv5114" target="_blank">Youtube <ion-icon  class="feature-icon"  name="logo-youtube"></ion-icon></a></li>
-            <li><a href="https://web.facebook.com/worshiparcade/?_rdc=1&_rdr" target="_blank">Facebook <ion-icon  class="feature-icon"  name="logo-facebook"></ion-icon></a></li>
-            <li><a href="https://repemaresources.com/?fbclid=IwAR3NyqRG0NYsQFraC61Byb4k5_cTVWY1cXy62Mw1Wg535M9IOC3u6sKOO0Y" target="_blank">Get book <ion-icon  class="feature-icon"  name="book"></ion-icon></a></li>
-           <li><a href="https://wa.link/iz6ls5" target="_blank">Chat us<ion-icon  class="feature-icon"  name="logo-whatsapp"></ion-icon></a></li>
-          </ul>
- 
-        </div>
         
+        <div class="social-sharing">
+          <a href="https://web.facebook.com/worshiparcade/?_rdc=1&_rdr">
+            <ion-icon  name="logo-facebook"></ion-icon>
+          </a>
+          <a href="https://repemaresources.com/?fbclid=IwAR3NyqRG0NYsQFraC61Byb4k5_cTVWY1cXy62Mw1Wg535M9IOC3u6sKOO0Y" data-tooltip="Buy Books">
+            <ion-icon name="book"></ion-icon>
+          </a>
+          <a href="https://wa.link/iz6ls5" >
+            <ion-icon name="logo-whatsapp"></ion-icon>
+          </a>
+          <a href="https://www.youtube.com/@worshiparcadetv5114">
+            <ion-icon name="logo-youtube"></ion-icon>
+          </a>
+        </div>
 
         <main>
           <section class="section-hero">
@@ -107,7 +111,7 @@
                 </p>
               </div>
             </div>
-           <a href="https://wa.link/iz6ls5"><ion-icon  class="feature-icon" id="chat" name="logo-whatsapp">Give us a call!</ion-icon></a> 
+            
         </section>
 
 
@@ -302,18 +306,18 @@
 
               <ul class="social-links">
                 <li>
-                  <a class="footer-link" href="#"
-                    ><ion-icon class="social-icon" name="logo-instagram"></ion-icon
+                  <a class="footer-link" href="https://www.youtube.com/@worshiparcadetv5114"
+                    ><ion-icon class="social-icon" name="logo-youtube"></ion-icon
                   ></a>
                 </li>
                 <li>
-                  <a class="footer-link" href="#"
+                  <a class="footer-link" href="https://web.facebook.com/worshiparcade/?_rdc=1&_rdr"
                     ><ion-icon class="social-icon" name="logo-facebook"></ion-icon
                   ></a>
                 </li>
                 <li>
-                  <a class="footer-link" href="#"
-                    ><ion-icon class="social-icon" name="logo-twitter"></ion-icon
+                  <a class="footer-link" href="https://wa.link/iz6ls5"
+                    ><ion-icon class="social-icon" name="logo-whatsapp"></ion-icon
                   ></a>
                 </li>
               </ul>
