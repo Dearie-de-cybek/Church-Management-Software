@@ -1,0 +1,221 @@
+/**************************/
+/* BELOW 1200px (Tablets) */
+/**************************/
+@media (min-width: 928.8px) {
+        
+}
+
+
+/**************************/
+/* BELOW 944px (Tablets) */
+/**************************/
+@media (min-width: 60em){
+    /* Navbar */
+    .menu-btn, .close-btn{
+        display: none;
+    }
+
+    nav{
+        position: unset;
+        height: auto;
+        background: none;
+        padding: 0;
+        width: auto;
+    }
+    ul{
+        flex-direction: row;
+    }
+    /* Navbar */
+
+    /* Hero */
+        
+    /* Hero */
+}
+
+/**************************/
+/* BELOW 704px (Smaller tablets) */
+/**************************/
+@media (max-width: 59em){
+    .wrapper{
+        max-width: 100%;
+        margin: 0 auto;
+        padding: 2%;
+    }
+
+    .grid--4-cols{
+        display: grid;
+        gap: 10em;
+        grid-template-columns: 1fr;
+    }
+
+    .features{
+        display: grid;
+        grid-template-columns: 1fr ;
+    }
+
+    /* image grid */
+        .grid-images{
+            display: grid;
+            grid-template-columns: 1fr;
+            column-gap: 2rem;
+            row-gap: 2rem;
+            height: 100%;
+            width: 100%;
+        }
+    /* image grid */
+
+    .book{
+        width: 70%;
+        margin-top: -25%;
+    }
+
+    /* car grid */
+    .car-gallery{
+        display: block;
+        margin-bottom: 2.3rem;
+    }
+    .car-gallery img {
+        width: 100%;
+    }
+    /* car grid */
+
+    /* footer */
+    .grid{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .nav-col{
+        margin: 0%;
+    }
+    /* footer */
+}
+
+/**************************/
+/* BELOW 544px (Phones) */
+/**************************/
+@media screen and (max-width: 554px){
+    /* Hero */
+        .welcome-text h1{
+            font-size: 4rem;
+            color: #fff;
+            font-weight: 700;
+            margin-left: auto;
+            text-align: center;
+        }
+
+        .welcome-text h3{
+            font-size: 2rem;
+            color: #fff;
+            font-weight: 600;
+            margin-left: auto;
+            margin-bottom: 1em;
+            text-align: center;
+        }
+
+        .hero-text{
+            font-size: 1.5rem;
+            font-weight: 500;
+            width: 70%;
+            color: #fff;
+            line-height: 3rem;
+            margin-bottom: 2.5rem;
+        }
+    /* Hero */
+
+    /* About Us */
+        .subheading {
+            display: block;
+            font-size: 1.6rem;
+            font-weight: 500; 
+            color: #fff;
+            text-transform: uppercase;
+            margin-left: 2%;
+            margin-bottom: 1rem;
+            letter-spacing: 0.75px;
+            padding-top: 2.4rem;
+        }
+
+        .heading-secondary {
+            font-size: 3.3rem;
+            line-height: 1;
+            margin-left: 2%;
+            margin-bottom: 2.6rem;
+            font-weight: 700;
+            color: #fff;
+            letter-spacing: -0.5px;
+            width: 90%;
+        } 
+
+        .about-text{
+            width: 85%;
+            margin-left: 2%;
+            font-size: 1.6rem;
+            line-height: 3rem;
+            color: #fff;
+            font-weight: 500;
+        }
+    /* About Us */
+
+    .swiper-container{
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 100%;
+        overflow: hidden;
+    }
+
+    /* Finance */
+        .app-section{
+            flex-direction: column;
+        }
+
+        .download-btn img{
+            width: 70%;
+            height: 70%;
+            margin: 5% 10%;
+        }
+
+        .app11, .app22 {
+            margin: 2% 25%;
+            height: 70%;
+            width: 45%;
+        }
+
+        .app-section .app11 {
+            order: 1;
+        }
+
+        .app-section .app22 {
+            order: 2;
+        }
+
+        .app-section>div {
+            order: 3;
+        }
+
+        .features {
+            margin: 2% 5%;
+        }
+
+        .book img {
+            margin-left: 15%;
+        }
+
+        
+
+    /* Finance */
+
+    /* footer */
+    .grid{
+        display: grid;
+        grid-template-columns: 1fr;
+    }
+
+    .nav-col{
+        text-align: center;
+    }
+
+    /* footer */
+
+}
