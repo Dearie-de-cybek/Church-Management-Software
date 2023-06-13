@@ -59,7 +59,7 @@ class NewsController extends Controller
 
         News::create(array_merge($valid,['slug' => $slug, 'image' => $img_dir]));
 
-        return redirect()->intended('dashboard.news')->with('message', 'News and Events Created Successfully');
+        return redirect()->intended(route('dashboard.news.index'))->with('message', 'News and Events Created Successfully');
     }
 
     /**
@@ -112,7 +112,7 @@ class NewsController extends Controller
             else {
                 $news->update(array_merge($valid));
             }
-            return redirect()->intended('dashboard.news')->with('message', 'News Successfully Updated');
+            return redirect()->intended(route('dashboard.news.index'))->with('message', 'News Successfully Updated');
         }
     }
 

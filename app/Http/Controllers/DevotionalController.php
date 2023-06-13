@@ -73,7 +73,7 @@ class DevotionalController extends Controller
         ]);
 
         DB::commit();
-        return redirect()->back()->with('message', 'Payment Submitted Successfully');
+        return redirect()->intended(route('dashboard.devotion.index'))->with('message', 'Payment Submitted Successfully');
         DB::rollBack();
     }
 
@@ -127,7 +127,7 @@ class DevotionalController extends Controller
     
     
             // dd($valid);
-            return redirect()->intended('dashboard/devotion')->withInput($request->input())->with('message','Category Updated');
+            return redirect()->intended(route('dashboard.devotion.index'))->withInput($request->input())->with('message','Category Updated');
         }
     }
 

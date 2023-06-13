@@ -64,7 +64,7 @@ class EventController extends Controller
         ]);
 
         DB::commit();
-        return redirect()->back()->with('message', 'Payment Submitted Successfully');
+        return redirect()->intended(route('dashboard.event.index'))->with('message', 'Payment Submitted Successfully');
         DB::rollBack();
     }
 
@@ -118,7 +118,7 @@ class EventController extends Controller
     
     
             // dd($valid);
-            return redirect()->intended('dashboard/event')->withInput($request->input())->with('message','Category Updated');
+            return redirect()->intended(route('dashboard.event.index'))->withInput($request->input())->with('message','Category Updated');
         }
     }
 

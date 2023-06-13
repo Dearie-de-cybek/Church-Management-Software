@@ -57,7 +57,7 @@ class EventCategoryController extends Controller
         EventCategory::create(array_merge($valid,['slug' => $slug]));
 
         DB::commit();
-        return redirect()->intended('dashboard.event-category')->with('message', 'Event Category Created Submitted Successfully');
+        return redirect()->intended(route('dashboard.event-category.index'))->with('message', 'Event Category Created Submitted Successfully');
         DB::rollBack();
     }
 
@@ -108,7 +108,7 @@ class EventCategoryController extends Controller
 
 
         // dd($valid);
-        return redirect()->intended('dashboard.event-category')->withInput($request->input())->with('message','Category Updated');
+        return redirect()->intended(route('dashboard.event-category.index'))->withInput($request->input())->with('message','Category Updated');
     }
     }
 
