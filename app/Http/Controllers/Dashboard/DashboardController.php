@@ -16,7 +16,8 @@ class DashboardController extends Controller
         $payments = Payment::all();
         $categories = EventCategory::all();
         $news = News::all();
-        return view('dashboard.index', compact('payments', 'categories', 'user'));
+        $payment_history = Payment::all()->where('user_id', $user->id);
+        return view('dashboard.index', compact('payments', 'categories', 'user', 'payment_history'));
     }
 
     public function payment() {

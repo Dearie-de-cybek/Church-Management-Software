@@ -2,7 +2,7 @@
     @extends('layouts.dashboard')
 
     @section('content')
-    <h1>{{$user}}</h1>
+        <p>{{ $payment_history }}</p>
         <div class="container">
             {{-- <h1>{{$user->is_admin}}</h1> --}}
             <table id="myTable" class="table table-striped table-bordered">
