@@ -1,7 +1,9 @@
 <?php
 
 use Illuminate\Http\Request;
+use App\Http\Controllers\Api\Apis;
 use Illuminate\Support\Facades\Route;
+use Spatie\FlareClient\Api;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,6 +16,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
+Route::middleware('auth:sanctum')->group(function(){
+    Route::get('transaction', [Apis::class, 'transactionHistory']);
 });
+
+Route::post('/register', [Apis::class, 'createUser']);
+Route::post('/login', [Apis::class, 'loginUser']);
+Route::post('/editprofile/{id}', [Apis::class, 'editProfile']);

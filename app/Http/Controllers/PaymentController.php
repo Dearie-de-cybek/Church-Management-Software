@@ -43,6 +43,7 @@ class PaymentController extends Controller
     public function store(Request $request)
     {
         //
+        $user = auth()->user();
         $request->validate([
             'name' => 'required',
             'amount' => 'required',
@@ -53,6 +54,7 @@ class PaymentController extends Controller
         DB::beginTransaction();
 
         $payment = Payment::create([
+            'user_id' => $user->id,
             'name' => $request->input('name'),
             'amount' => $request->input('amount'),
             'payment' => $request->input('payment_type'),

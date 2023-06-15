@@ -7,7 +7,7 @@
         <title>Worship Arcade</title>
         <link rel="stylesheet" href="{{asset('assets/css/styles.css')}}">
         <link rel="stylesheet" href="{{asset('assets/css/responsiveness.css')}}">
-        <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css"></link>
+        <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
         <script defer type="module" src="https://unpkg.com/ionicons@5.4.0/dist/ionicons/ionicons.esm.js"></script>
         <script defer nomodule="" src="https://unpkg.com/ionicons@5.4.0/dist/ionicons/ionicons.js"></script>
         <script defer src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
