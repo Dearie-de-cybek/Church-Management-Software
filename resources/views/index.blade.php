@@ -7,7 +7,7 @@
         <title>Worship Arcade</title>
         <link rel="stylesheet" href="{{asset('assets/css/styles.css')}}">
         <link rel="stylesheet" href="{{asset('assets/css/responsiveness.css')}}">
-        <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+        <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css"></link>
         <script defer type="module" src="https://unpkg.com/ionicons@5.4.0/dist/ionicons/ionicons.esm.js"></script>
         <script defer nomodule="" src="https://unpkg.com/ionicons@5.4.0/dist/ionicons/ionicons.js"></script>
         <script defer src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
@@ -157,7 +157,7 @@
 
     <section class="who">
         <div class="wrapper" id="whoweare">
-            <span class="heading-secondary" id="">Who we are</span>
+            <span class="heading-secondary" id="diff1">Who we are</span>
             <div class="heading-secondary" id="">
                 We are the Testifiers family, we believe in more
                 of God, less of Religion. Miracles Happen Here!
@@ -209,8 +209,8 @@
     <section class="locate">
         <div class="wrapper">
             <div class="con">
-                <span class="heading-secondary" id="locateus">Locate us</span>
-                <img src="{{ asset('assets/images/marker.svg') }}" alt="">
+                <span class="heading-secondary" id="diff1" style="width: fit-content">Locate us</span>
+                <img src="{{ asset('assets/images/marker.svg') }}" style="margin-top: -2em" alt="">
             </div>
             <div class="heading-secondary" id="diff2"> CHURCH AUDITORIUM: PAMOR CENTER, Interbua Roundabout, by First Bank Plc, Asaba, Delta State.</div>
             <div class="car-gallery">
