@@ -3,12 +3,14 @@
 namespace App\Http\Controllers\Api;
 
 use App\Models\User;
+use App\Models\Event;
 use App\Models\Payment;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
+use App\Models\Devotional;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -156,6 +158,46 @@ class Apis extends Controller
                 'status' => true,
                 'message' => 'All the users payment history',
                 'All Courses' => $payment_history
+            ]);
+        } catch (\Throwable $th) {
+            return response()->json([
+                'status' => false,
+                'message' => 'Server Error',
+                'errors' => $th->getMessage()
+            ]);
+        }
+    }
+
+    public function events()
+    {
+        try {
+            $user = auth()->user();
+            $events = Event::all();
+
+            return response()->json([
+                'status' => true,
+                'message' => 'All the Upcoming Events',
+                'All Courses' => $events
+            ]);
+        } catch (\Throwable $th) {
+            return response()->json([
+                'status' => false,
+                'message' => 'Server Error',
+                'errors' => $th->getMessage()
+            ]);
+        }
+    }
+
+    public function devotionals()
+    {
+        try {
+            $user = auth()->user();
+            $devotional = Devotional::all();
+
+            return response()->json([
+                'status' => true,
+                'message' => 'All the Upcoming Events',
+                'All Courses' => $devotional
             ]);
         } catch (\Throwable $th) {
             return response()->json([
