@@ -196,7 +196,7 @@ class Apis extends Controller
 
             return response()->json([
                 'status' => true,
-                'message' => 'All the Upcoming Events',
+                'message' => 'All Devotional',
                 'All Courses' => $devotional
             ]);
         } catch (\Throwable $th) {

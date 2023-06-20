@@ -18,6 +18,8 @@ use Spatie\FlareClient\Api;
 
 Route::middleware('auth:sanctum')->group(function(){
     Route::get('transaction', [Apis::class, 'transactionHistory']);
+    Route::get('events', [Apis::class, 'events']);
+    Route::get('devotional', [Apis::class, 'devotionals']);
 });
 
 Route::post('/register', [Apis::class, 'createUser']);
