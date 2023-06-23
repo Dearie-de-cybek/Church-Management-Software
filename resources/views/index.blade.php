@@ -157,7 +157,7 @@
 
     <section class="who">
         <div class="wrapper" id="whoweare">
-            <span class="heading-secondary" id="diff1">Who we are</span>
+            <span class="subheading" id="">Who we are</span>
             <div class="heading-secondary" id="">
                 We are the Testifiers family, we believe in more
                 of God, less of Religion. Miracles Happen Here!
@@ -175,8 +175,9 @@
     </section>
     
     <!-- Michael add your part that you have in your branch here -->
-    <section class="benediction" style="padding-top: 5%">
+    <section class="benediction" style="padding-top: 0%">
         <div class="wrapper">
+            <span class="subheading" id="">Our Community</span>
 
             <div class="grid-images">
                 
@@ -191,7 +192,7 @@
                 </div>
 
                 <div>
-                    <span class="heading-secondary" id="diff1">Benediction</span>
+                    <span class="subheading" id="">Benediction</span>
                     <br><br>
                     <span class="about-text">
                         This is my day, This is my week, This is my moment, This is my time, where i failed yesterday, i will triumph this time, where i was defeated before, i cancel the defeat, every lack in my life is terminated, every negative condition is healed, every arrows from the enemy's camp, it's multiplied and returned to them, my star is shining, it cannot be deemed, i access and manifest the wisdom of God in all i do, i am fruitful in all areas of life, i will fulfill my days and purpose here on earth, This is my year of "Higher Ground(2023 year proclamation)" and my month of total Recovery(Monthly proclamation) in Jesus name. Amen 
@@ -209,7 +210,7 @@
     <section class="locate">
         <div class="wrapper">
             <div class="con">
-                <span class="heading-secondary" id="diff1" style="width: fit-content">Locate us</span>
+                <span class="subheading" id="" style="width: fit-content">Locate us</span>
                 <img src="{{ asset('assets/images/marker.svg') }}" style="margin-top: -2em" alt="">
             </div>
             <div class="heading-secondary" id="diff2"> CHURCH AUDITORIUM: PAMOR CENTER, Interbua Roundabout, by First Bank Plc, Asaba, Delta State.</div>
