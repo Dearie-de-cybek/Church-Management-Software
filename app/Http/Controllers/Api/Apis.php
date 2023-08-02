@@ -2,15 +2,16 @@
 
 namespace App\Http\Controllers\Api;
 
+use App\Models\News;
 use App\Models\User;
 use App\Models\Event;
 use App\Models\Payment;
+use App\Models\Devotional;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
-use App\Models\Devotional;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -220,6 +221,26 @@ class Apis extends Controller
                 'status' => true,
                 'message' => 'All the Upcoming Events',
                 'All Courses' => $events
+            ]);
+        } catch (\Throwable $th) {
+            return response()->json([
+                'status' => false,
+                'message' => 'Server Error',
+                'errors' => $th->getMessage()
+            ]);
+        }
+    }
+
+    public function news()
+    {
+        try {
+            $user = auth()->user();
+            $news = News::all();
+
+            return response()->json([
+                'status' => true,
+                'message' => 'All the Upcoming News',
+                'All Courses' => $news
             ]);
         } catch (\Throwable $th) {
             return response()->json([
