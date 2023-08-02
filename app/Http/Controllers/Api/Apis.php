@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\Models\News;
 use App\Models\User;
 use App\Models\Event;
+use App\Models\Prayer;
 use App\Models\Payment;
 use App\Models\Devotional;
 use Illuminate\Support\Str;
@@ -158,7 +159,7 @@ class Apis extends Controller
             return response()->json([
                 'status' => true,
                 'message' => 'All the users payment history',
-                'All Courses' => $payment_history
+                'All Payment History' => $payment_history
             ]);
         } catch (\Throwable $th) {
             return response()->json([
@@ -220,7 +221,7 @@ class Apis extends Controller
             return response()->json([
                 'status' => true,
                 'message' => 'All the Upcoming Events',
-                'All Courses' => $events
+                'All Events' => $events
             ]);
         } catch (\Throwable $th) {
             return response()->json([
@@ -240,7 +241,7 @@ class Apis extends Controller
             return response()->json([
                 'status' => true,
                 'message' => 'All the Upcoming News',
-                'All Courses' => $news
+                'All News' => $news
             ]);
         } catch (\Throwable $th) {
             return response()->json([
@@ -260,7 +261,27 @@ class Apis extends Controller
             return response()->json([
                 'status' => true,
                 'message' => 'All Devotional',
-                'All Courses' => $devotional
+                'All Devotionals' => $devotional
+            ]);
+        } catch (\Throwable $th) {
+            return response()->json([
+                'status' => false,
+                'message' => 'Server Error',
+                'errors' => $th->getMessage()
+            ]);
+        }
+    }
+
+    public function prayers()
+    {
+        try {
+            $user = auth()->user();
+            $prayers = Prayer::all();
+
+            return response()->json([
+                'status' => true,
+                'message' => 'All prayers',
+                'All Prayers' => $prayers
             ]);
         } catch (\Throwable $th) {
             return response()->json([

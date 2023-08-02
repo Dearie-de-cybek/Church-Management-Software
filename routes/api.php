@@ -20,7 +20,8 @@ Route::middleware('auth:sanctum')->group(function(){
     Route::get('transaction', [Apis::class, 'transactionHistory']);
     Route::get('events', [Apis::class, 'events']);
     Route::get('news', [Apis::class, 'news']);
-    Route::get('devotional', [Apis::class, 'devotionals']);
+    Route::get('devotionals', [Apis::class, 'devotionals']);
+    Route::get('prayers', [Apis::class, 'prayers']);
     Route::post('make-payment', [Apis::class, 'makePayment']);
 });
 

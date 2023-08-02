@@ -378,7 +378,7 @@
 
       <li class="nav-item">
         <a class="nav-link collapsed" data-bs-target="#charts-nav" data-bs-toggle="collapse" href="#">
-            <i class="bi bi-journal-plus"></i><span>Devotional</span><i class="bi bi-chevron-down ms-auto"></i>
+            <i class="bi bi-journal-plus"></i><span>Devotional and Prayers</span><i class="bi bi-chevron-down ms-auto"></i>
         </a>
         <ul id="charts-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
             <li class="nav-heading">Devotionals</li>
@@ -390,6 +390,18 @@
           <li>
             <a href="{{ route('dashboard.devotion.add-devotion') }}">
               <i class="bi bi-circle"></i><span>Add Devotionals</span>
+            </a>
+          </li>
+
+            <li class="nav-heading">Prayers</li>
+          <li>
+            <a href="{{ route('dashboard.prayer.index') }}">
+              <i class="bi bi-circle"></i><span>Prayers</span>
+            </a>
+          </li>
+          <li>
+            <a href="{{ route('dashboard.prayer.add-prayer') }}">
+              <i class="bi bi-circle"></i><span>Add Prayers</span>
             </a>
           </li>
         </ul>
@@ -404,21 +416,6 @@
           <span>My Profile</span>
         </a>
       </li><!-- End Profile Page Nav -->
-
-      <li class="nav-item">
-        <a class="nav-link collapsed" href="">
-          <i class="bi bi-bell"></i>
-          <span>Notifications</span>
-        </a>
-      </li><!-- End F.A.Q Page Nav -->
-
-      <li class="nav-item">
-        <a class="nav-link collapsed" href="">
-          <i class="bi bi-chat-left-text"></i>
-          <span>Messages</span>
-        </a>
-      </li><!-- End Contact Page Nav -->
-      </li><!-- End F.A.Q Page Nav -->
 
       <li class="nav-item">
         <a class="nav-link collapsed" href="">

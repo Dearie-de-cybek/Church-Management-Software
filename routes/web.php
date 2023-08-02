@@ -16,8 +16,10 @@ use App\Http\Controllers\EventCategoryController;
 use App\Http\Controllers\Dashboard\DashboardController;
 use App\Http\Controllers\AppointmentController;
 use App\Http\Controllers\DevotionalController;
+use App\Http\Controllers\PrayerController;
 use App\Http\Controllers\UserController;
 use App\Models\Devotional;
+use App\Models\Prayer;
 use Laravel\Fortify\Http\Controllers\AuthenticatedSessionController;
 
 /*
@@ -102,6 +104,15 @@ Route::middleware('auth')->group(function () {
             Route::get('edit-devotion/{id}', [DevotionalController::class, 'edit'])->name('edit-devotion');
             Route::post('edit-devotion/{id}', [DevotionalController::class, 'update'])->name('update-devotion');
             Route::get('{id}', [DevotionalController::class, 'destroy'])->name('delete-devotion');
+        });
+
+        Route::name('prayer.')->prefix('prayer')->group(function() {
+            Route::get('', [PrayerController::class, 'index'])->name('index');
+            Route::get('add-prayer', [PrayerController::class, 'create'])->name('add-prayer');
+            Route::post('prayer', [PrayerController::class, 'store'])->name('prayer');
+            Route::get('edit-prayer/{id}', [PrayerController::class, 'edit'])->name('edit-prayer');
+            Route::post('edit-prayer/{id}', [PrayerController::class, 'update'])->name('update-prayer');
+            Route::get('{id}', [PrayerController::class, 'destroy'])->name('delete-prayer');
         });
 
     });
