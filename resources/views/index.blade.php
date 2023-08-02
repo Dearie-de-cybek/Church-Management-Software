@@ -211,9 +211,13 @@
         <div class="wrapper">
             <div class="con">
                 <span class="subheading" id="" style="width: fit-content">Locate us</span>
-                <img src="{{ asset('assets/images/marker.svg') }}" style="margin-top: -2em" alt="">
             </div>
-            <div class="heading-secondary" id="diff2"> CHURCH AUDITORIUM: PAMOR CENTER, Interbua Roundabout, by First Bank Plc, Asaba, Delta State.</div>
+            <div style="display: flex"> 
+                <img src="{{ asset('assets/images/marker.svg') }}" style="margin-top: -2em" alt="">
+                <span class="heading-secondary" id="diff2">
+                    CHURCH AUDITORIUM: PAMOR CENTER, Interbua Roundabout, by First Bank Plc, Asaba, Delta State.
+                </span>
+            </div>
             <div class="car-gallery">
                 <img src="{{ asset('assets/images/carpark.png') }}" width="50%" alt="">          
                 <img src="{{ asset('assets/images/carpark2.png') }}" width="50%" alt="">          

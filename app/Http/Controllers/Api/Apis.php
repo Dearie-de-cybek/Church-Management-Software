@@ -167,6 +167,48 @@ class Apis extends Controller
             ]);
         }
     }
+    public function makePayment(Request $request)
+    {
+        try {
+            $user = auth()->user();
+            $validateUser = Validator::make($request->all(),[
+                'name' => 'required',
+                'amount' => 'required',
+                'payment_type' => 'required',
+                'status' => 'required'
+            ]);
+
+            if($validateUser->fails()){
+                return response()->json([
+                    'status' => false,
+                    'message' => 'Validation Error',
+                    'errors' => $validateUser->errors()
+            ], 401);
+            }
+
+
+            $user = Payment::create([
+                'user_id' => $user->id,
+                'name' => $request->input('name'),
+                'amount' => $request->input('amount'),
+                'payment' => $request->input('payment_type'),
+                'status' => $request->input('status')
+            ]);
+
+            return response()->json([
+                'status' => true,
+                'message' => 'Account Created Successfully',
+                'data' => $user
+            ]);
+
+        } catch (\Throwable $th) {
+            return response()->json([
+                'status' => false,
+                'message' => 'Server Error',
+                'errors' => $th->getMessage()
+            ]);
+        }
+    }
 
     public function events()
     {
