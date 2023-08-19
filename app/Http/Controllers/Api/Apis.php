@@ -32,10 +32,11 @@ class Apis extends Controller
             $validateUser = Validator::make($request->all(),[
                 'name' => 'required',
                 'surname' => 'required',
-                'username' => 'required',
+                'phone_number' => 'required|unique:users,phone_number',
                 'email' => 'required|email|unique:users,email',
                 'password' => 'required|min:8',
                 'nationality' => 'required',
+                'martial_status' => 'required',
                 'gender' => 'required',
                 'dob' => 'required',
                 'image' => 'mimes:jpg,png,jpeg'
@@ -53,10 +54,11 @@ class Apis extends Controller
             $user = User::create([
                 'name' => $request->input('name'),
                 'surname' => $request->input('surname'),
-                'username' => $request->input('username'),
+                'phone_number' => $request->input('phone_number'),
                 'email' => $request->input('email'),
                 'password' => Hash::make($request->password),
                 'nationality' => $request->input('nationality'),
+                'martial_status' => $request->input('martial_status'),
                 'gender' => $request->input('gender'),
                 'dob' => $request->input('dob'),
                 'image' => $request->input('image')
