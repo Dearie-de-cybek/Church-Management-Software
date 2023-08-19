@@ -16,12 +16,15 @@
 
             <label for="memory_verse" class="form-label">Memory Verse: </label>
             <input type="text" name="memory_verse" id="memory_verse" class="form-control" required>
-
+            
             <label for="devotion" class="form-label">Devotion: </label>
             <textarea type="text" name="devotion" id="devotion" class="form-control" required></textarea>
-
+            
             <label for="closing_prayer" class="form-label">Closing Prayer: </label>
             <textarea type="text" name="closing_prayer" id="closing_prayer" value="Pending" class="form-control"></textarea>
+
+            <label for="date" class="form-label">Date: </label>
+            <input type="date" name="date" id="date" class="form-control" required>
 
             <button class="btn btn-sm btn-outline-info mt-3" type="submit">Submit</button>
         </form>

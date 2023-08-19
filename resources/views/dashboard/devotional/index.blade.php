@@ -18,6 +18,7 @@ closing prayer --}}
                     <th scope="col">Memory Verse</th>
                     <th scope="col">Devotion</th>
                     <th scope="col">Closing Prayer</th>
+                    <th scope="col">Date</th>
                     <th scope="col">Actions</th>
                 </tr>
             </thead>
@@ -32,6 +33,7 @@ closing prayer --}}
                         <td> {{ $devotional->memory_verse }} </td>
                         <td> {{ $devotional->devotion }} </td>
                         <td> {{ $devotional->closing_prayer }} </td>
+                        <td> {{ $devotional->date }} </td>
                         <td>
                             <a href="{{ route('dashboard.devotion.edit-devotion', $devotional->id) }}"><button class="btn btn-sm btn-outline-info"><i class="bi bi-pencil-square"></i>Edit</button></a>
                             <a href="{{ route('dashboard.devotion.delete-devotion', $devotional->id) }}"><button class="btn btn-sm btn-outline-danger"><i class="bi bi-trash"></i>Delete</button></a>

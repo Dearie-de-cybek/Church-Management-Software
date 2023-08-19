@@ -46,19 +46,20 @@ class DevotionalController extends Controller
     public function store(Request $request)
     {
         //
-            // opening prayer
-            // topic
-            // bible text
-            // memory verse
-            // devotion
-            // closing prayer
+        // opening prayer
+        // topic
+        // bible text
+        // memory verse
+        // devotion
+        // closing prayer
         $request->validate([
             'opening_prayer' => 'required',
             'topic' => 'required',
             'bible_text' => 'required',
             'memory_verse' => 'required',
             'devotion' => 'required',
-            'closing_prayer' => 'required'
+            'closing_prayer' => 'required',
+            'date' => 'required'
         ]);
 
         DB::beginTransaction();
@@ -69,7 +70,9 @@ class DevotionalController extends Controller
             'bible_text' => $request->input('bible_text'),
             'memory_verse' => $request->input('memory_verse'),
             'devotion' => $request->input('devotion'),
-            'closing_prayer' => $request->input('closing_prayer')
+            'closing_prayer' => $request->input('closing_prayer'),
+            'date' => $request->input('date')
+
         ]);
 
         DB::commit();
@@ -120,7 +123,8 @@ class DevotionalController extends Controller
                 'bible_text' => 'required',
                 'memory_verse' => 'required',
                 'devotion' => 'required',
-                'closing_prayer' => 'required'
+                'closing_prayer' => 'required',
+                'date' => 'required'
             ]);
 
             $devotion->update(array_merge($valid));

@@ -21,6 +21,7 @@ return new class extends Migration
             $table->string('memory_verse');
             $table->string('devotion');
             $table->string('closing_prayer');
+            $table->date('date');
             $table->timestamps();
         });
     }
