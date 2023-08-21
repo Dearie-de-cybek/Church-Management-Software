@@ -13,6 +13,8 @@ closing prayer --}}
                 <tr>
                     <th scope="col">Date</th>
                     <th scope="col">Prayer</th>
+                    <th scope="col">Date</th>
+                    <th scope="col">Actions</th>
                 </tr>
             </thead>
 
@@ -21,6 +23,7 @@ closing prayer --}}
                     <tr style="background: none">
                         <td> {{ $prayer->created_at }} </td>
                         <td> {{ $prayer->prayer }} </td>
+                        <td> {{ $prayer->date }} </td>
                         <td>
                             <a href="{{ route('dashboard.prayer.edit-prayer', $prayer->id) }}"><button class="btn btn-sm btn-outline-info"><i class="bi bi-pencil-square"></i>Edit</button></a>
                             <a href="{{ route('dashboard.prayer.delete-prayer', $prayer->id) }}"><button class="btn btn-sm btn-outline-danger"><i class="bi bi-trash"></i>Delete</button></a>

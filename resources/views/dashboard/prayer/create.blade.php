@@ -11,6 +11,9 @@
             <label for="prayer" class="form-label">Prayer: </label>
             <textarea type="text" name="prayer" id="prayer" class="form-control" required></textarea>
 
+            <label for="date" class="form-label">Date:</label>
+            <input type="date" name="date" id="date" class="form-control" required>
+
             <button class="btn btn-sm btn-outline-info mt-3" type="submit">Submit</button>
         </form>
     </div>

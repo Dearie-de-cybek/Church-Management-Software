@@ -16,6 +16,7 @@ return new class extends Migration
         Schema::create('prayers', function (Blueprint $table) {
             $table->id();
             $table->string('prayer');
+            $table->date('date');
             $table->timestamps();
         });
     }

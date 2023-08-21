@@ -47,13 +47,15 @@ class PrayerController extends Controller
     {
         //
         $request->validate([
-            'prayer' => 'required'
+            'prayer' => 'required',
+            'date' => 'required'
         ]);
 
         DB::beginTransaction();
 
         $prayer = Prayer::create([
-            'prayer' => $request->input('prayer')
+            'prayer' => $request->input('prayer'),
+            'date' => $request->input('date')
         ]);
 
         DB::commit();
@@ -99,7 +101,8 @@ class PrayerController extends Controller
         {
             $devotion = Prayer::findOrFail($id);
             $valid = $request->validate([
-                'prayer' => 'required'
+                'prayer' => 'required',
+                'date' => 'required',
             ]);
 
             $devotion->update(array_merge($valid));
