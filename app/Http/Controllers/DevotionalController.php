@@ -59,7 +59,8 @@ class DevotionalController extends Controller
             'memory_verse' => 'required',
             'devotion' => 'required',
             'closing_prayer' => 'required',
-            'date' => 'required'
+            'date' => 'required',
+            'day' => 'required'
         ]);
 
         DB::beginTransaction();
@@ -71,7 +72,8 @@ class DevotionalController extends Controller
             'memory_verse' => $request->input('memory_verse'),
             'devotion' => $request->input('devotion'),
             'closing_prayer' => $request->input('closing_prayer'),
-            'date' => $request->input('date')
+            'date' => $request->input('date'),
+            'day' => $request->input('day')
 
         ]);
 
@@ -124,7 +126,8 @@ class DevotionalController extends Controller
                 'memory_verse' => 'required',
                 'devotion' => 'required',
                 'closing_prayer' => 'required',
-                'date' => 'required'
+                'date' => 'required',
+                'day' => 'required'
             ]);
 
             $devotion->update(array_merge($valid));

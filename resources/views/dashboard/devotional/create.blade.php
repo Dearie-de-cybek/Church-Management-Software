@@ -28,6 +28,17 @@
 
             <label for="date" class="form-label">Date: </label>
             <input type="date" name="date" id="date" class="form-control" required>
+
+            <label for="day" class="form-label">Day: </label>
+            <select name="day" id="day" class="form-select">
+                <option value="">Select The Day for Devotion</option>
+                <option value="Monday">Monday</option>
+                <option value="Tuesday">Tuesday</option>
+                <option value="Wednesday">Wednesday</option>
+                <option value="Thursday">Thursday</option>
+                <option value="Friday">Friday</option>
+                <option value="Saturday">Saturday</option>
+            </select>
             
             <button class="btn btn-sm btn-outline-info mt-3" type="submit">Submit</button>
         </form>

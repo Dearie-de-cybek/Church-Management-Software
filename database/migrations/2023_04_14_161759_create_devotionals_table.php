@@ -22,6 +22,7 @@ return new class extends Migration
             $table->string('devotion');
             $table->string('closing_prayer');
             $table->date('date');
+            $table->string('day');
             $table->timestamps();
         });
     }
