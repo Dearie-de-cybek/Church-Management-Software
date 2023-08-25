@@ -345,8 +345,8 @@
             </a>
           </li>
           <li>
-            <a href="">
-              <i class="bi bi-circle"></i><span>Events</span>
+            <a href="{{ route('dashboard.news.add-news') }}">
+              <i class="bi bi-circle"></i><span>Add News</span>
             </a>
           </li>
 
