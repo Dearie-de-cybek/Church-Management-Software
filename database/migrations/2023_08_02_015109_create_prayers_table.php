@@ -15,7 +15,11 @@ return new class extends Migration
     {
         Schema::create('prayers', function (Blueprint $table) {
             $table->id();
-            $table->string('prayer');
+            $table->string('prayer1');
+            $table->string('prayer2');
+            $table->string('prayer3');
+            $table->string('prayer4');
+            $table->string('day');
             $table->date('date');
             $table->timestamps();
         });

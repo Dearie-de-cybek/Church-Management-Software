@@ -47,19 +47,27 @@ class PrayerController extends Controller
     {
         //
         $request->validate([
-            'prayer' => 'required',
+            'prayer1' => 'required',
+            'prayer2' => 'required',
+            'prayer3' => 'required',
+            'prayer4' => 'required',
+            'day' => 'required',
             'date' => 'required'
         ]);
 
         DB::beginTransaction();
 
         $prayer = Prayer::create([
-            'prayer' => $request->input('prayer'),
+            'prayer1' => $request->input('prayer1'),
+            'prayer2' => $request->input('prayer2'),
+            'prayer3' => $request->input('prayer3'),
+            'prayer4' => $request->input('prayer4'),
+            'day' => $request->input('day'),
             'date' => $request->input('date')
         ]);
 
         DB::commit();
-        return redirect()->intended(route('dashboard.prayer.index'))->with('message', 'Prayer Created Successfully');
+        return redirect()->intended(route('dashboard.prayer.index'))->with('message', 'Prayers Created Successfully');
         DB::rollBack();
     }
 
@@ -101,8 +109,12 @@ class PrayerController extends Controller
         {
             $devotion = Prayer::findOrFail($id);
             $valid = $request->validate([
-                'prayer' => 'required',
-                'date' => 'required',
+                'prayer1' => 'required',
+                'prayer2' => 'required',
+                'prayer3' => 'required',
+                'prayer4' => 'required',
+                'day' => 'required',
+                'date' => 'required'
             ]);
 
             $devotion->update(array_merge($valid));
