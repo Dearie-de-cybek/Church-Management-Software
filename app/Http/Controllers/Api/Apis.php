@@ -274,6 +274,126 @@ class Apis extends Controller
         }
     }
 
+    public function devotionalsMonday()
+    {
+        try {
+            $user = auth()->user();
+            $devotional = Devotional::all()->where('day', 'Monday');
+
+            return response()->json([
+                'status' => true,
+                'message' => 'All Devotional',
+                'All Devotionals' => $devotional
+            ]);
+        } catch (\Throwable $th) {
+            return response()->json([
+                'status' => false,
+                'message' => 'Server Error',
+                'errors' => $th->getMessage()
+            ]);
+        }
+    }
+
+    public function devotionalsTuesday()
+    {
+        try {
+            $user = auth()->user();
+            $devotional = Devotional::all()->where('day', 'Tuesday');
+
+            return response()->json([
+                'status' => true,
+                'message' => 'All Devotional',
+                'All Devotionals' => $devotional
+            ]);
+        } catch (\Throwable $th) {
+            return response()->json([
+                'status' => false,
+                'message' => 'Server Error',
+                'errors' => $th->getMessage()
+            ]);
+        }
+    }
+
+    public function devotionalsWednesday()
+    {
+        try {
+            $user = auth()->user();
+            $devotional = Devotional::all()->where('day', 'Wednesday');
+
+            return response()->json([
+                'status' => true,
+                'message' => 'All Devotional',
+                'All Devotionals' => $devotional
+            ]);
+        } catch (\Throwable $th) {
+            return response()->json([
+                'status' => false,
+                'message' => 'Server Error',
+                'errors' => $th->getMessage()
+            ]);
+        }
+    }
+
+    public function devotionalsThursday()
+    {
+        try {
+            $user = auth()->user();
+            $devotional = Devotional::all()->where('day', 'Thursday');
+
+            return response()->json([
+                'status' => true,
+                'message' => 'All Devotional',
+                'All Devotionals' => $devotional
+            ]);
+        } catch (\Throwable $th) {
+            return response()->json([
+                'status' => false,
+                'message' => 'Server Error',
+                'errors' => $th->getMessage()
+            ]);
+        }
+    }
+
+    public function devotionalsFriday()
+    {
+        try {
+            $user = auth()->user();
+            $devotional = Devotional::all()->where('day', 'Friday');
+
+            return response()->json([
+                'status' => true,
+                'message' => 'All Devotional',
+                'All Devotionals' => $devotional
+            ]);
+        } catch (\Throwable $th) {
+            return response()->json([
+                'status' => false,
+                'message' => 'Server Error',
+                'errors' => $th->getMessage()
+            ]);
+        }
+    }
+
+    public function devotionalsSaturday()
+    {
+        try {
+            $user = auth()->user();
+            $devotional = Devotional::all()->where('day', 'Saturday');
+
+            return response()->json([
+                'status' => true,
+                'message' => 'All Devotional',
+                'All Devotionals' => $devotional
+            ]);
+        } catch (\Throwable $th) {
+            return response()->json([
+                'status' => false,
+                'message' => 'Server Error',
+                'errors' => $th->getMessage()
+            ]);
+        }
+    }
+
     public function prayers()
     {
         try {
