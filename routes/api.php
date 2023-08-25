@@ -35,6 +35,16 @@ Route::name('devotionals.')->prefix('devotionals')->group(function(){
     Route::get('Saturday', [Apis::class, 'devotionalsSaturday']);
 });
 
-Route::get('prayers', [Apis::class, 'prayers']);
+Route::name('prayers.')->prefix('prayers')->group(function () {
+    Route::get('prayers', [Apis::class, 'prayers']);
+    Route::get('Monday', [Apis::class, 'prayersMonday']);
+    Route::get('Tuesday', [Apis::class, 'prayersTuesday']);
+    Route::get('Wednesday', [Apis::class, 'prayersWednesday']);
+    Route::get('Thursday', [Apis::class, 'prayersThursday']);
+    Route::get('Friday', [Apis::class, 'prayersFriday']);
+    Route::get('Saturday', [Apis::class, 'prayersSaturday']);
+
+});
+
 Route::post('/register', [Apis::class, 'createUser']);
 Route::post('/login', [Apis::class, 'loginUser']);

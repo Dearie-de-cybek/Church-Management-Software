@@ -126,16 +126,16 @@ class Apis extends Controller
         $input = $request->all();
         $user = User::findOrFail($id);
         $valid = Validator::make($request->all(),[
-            'name' => 'required',
-            'surname' => 'required',
-            'username' => ['required', Rule::unique('users')->ignore($user)],
-            'phone_number' => ['required', Rule::unique('users')->ignore($user)],
-            'email' => ['required', Rule::unique('users')->ignore($user)],
-            'password' => 'required|confirmed|min:8',
-            'martial_status' => 'required',
-            'nationality' => 'required',
-            'gender' => 'required',
-            'dob' => 'required',
+            'name' => 'nullable',
+            'surname' => 'nullable',
+            'username' => ['nullable', Rule::unique('users')->ignore($user)],
+            'phone_number' => ['nullable', Rule::unique('users')->ignore($user)],
+            'email' => ['nullable', Rule::unique('users')->ignore($user)],
+            'password' => 'nullable|confirmed|min:8',
+            'martial_status' => 'nullable',
+            'nationality' => 'nullable',
+            'gender' => 'nullable',
+            'dob' => 'nullable',
         ]);
 
         if ($valid->fails()) {
@@ -399,6 +399,126 @@ class Apis extends Controller
         try {
             $user = auth()->user();
             $prayers = Prayer::all();
+
+            return response()->json([
+                'status' => true,
+                'message' => 'All prayers',
+                'All Prayers' => $prayers
+            ]);
+        } catch (\Throwable $th) {
+            return response()->json([
+                'status' => false,
+                'message' => 'Server Error',
+                'errors' => $th->getMessage()
+            ]);
+        }
+    }
+
+    public function prayersMonday()
+    {
+        try {
+            $user = auth()->user();
+            $prayers = Prayer::all()->where('day', 'Monday');
+
+            return response()->json([
+                'status' => true,
+                'message' => 'All prayers',
+                'All Prayers' => $prayers
+            ]);
+        } catch (\Throwable $th) {
+            return response()->json([
+                'status' => false,
+                'message' => 'Server Error',
+                'errors' => $th->getMessage()
+            ]);
+        }
+    }
+
+    public function prayersTuesday()
+    {
+        try {
+            $user = auth()->user();
+            $prayers = Prayer::all()->where('day', 'Tuesday');
+
+            return response()->json([
+                'status' => true,
+                'message' => 'All prayers',
+                'All Prayers' => $prayers
+            ]);
+        } catch (\Throwable $th) {
+            return response()->json([
+                'status' => false,
+                'message' => 'Server Error',
+                'errors' => $th->getMessage()
+            ]);
+        }
+    }
+
+    public function prayersWednesday()
+    {
+        try {
+            $user = auth()->user();
+            $prayers = Prayer::all()->where('day', 'Wednesday');
+
+            return response()->json([
+                'status' => true,
+                'message' => 'All prayers',
+                'All Prayers' => $prayers
+            ]);
+        } catch (\Throwable $th) {
+            return response()->json([
+                'status' => false,
+                'message' => 'Server Error',
+                'errors' => $th->getMessage()
+            ]);
+        }
+    }
+
+    public function prayersThursday()
+    {
+        try {
+            $user = auth()->user();
+            $prayers = Prayer::all()->where('day', 'Thursday');
+
+            return response()->json([
+                'status' => true,
+                'message' => 'All prayers',
+                'All Prayers' => $prayers
+            ]);
+        } catch (\Throwable $th) {
+            return response()->json([
+                'status' => false,
+                'message' => 'Server Error',
+                'errors' => $th->getMessage()
+            ]);
+        }
+    }
+
+    public function prayersFriday()
+    {
+        try {
+            $user = auth()->user();
+            $prayers = Prayer::all()->where('day', 'Friday');
+
+            return response()->json([
+                'status' => true,
+                'message' => 'All prayers',
+                'All Prayers' => $prayers
+            ]);
+        } catch (\Throwable $th) {
+            return response()->json([
+                'status' => false,
+                'message' => 'Server Error',
+                'errors' => $th->getMessage()
+            ]);
+        }
+    }
+
+    public function prayersSaturday()
+    {
+        try {
+            $user = auth()->user();
+            $prayers = Prayer::all()->where('day', 'Saturday');
 
             return response()->json([
                 'status' => true,
