@@ -48,13 +48,16 @@ class UserController extends Controller
             'phone_number' => 'required|unique:users,phone_number',
             'email' => 'required|email|unique:users,email',
             'password' => 'required|confirmed|min:8',
-            'martial_status' => 'required',
-            'nationality' => 'required',
-            'gender' => 'required',
-            'dob' => 'required',
+            'martial_status' => 'nulliable',
+            'nationality' => 'nulliable',
+            'gender' => 'nulliable',
+            'dob' => 'nulliable',
+            'bio' => 'nulliable',
+            'image' => 'nulliable|mimes:jpg,png,jpeg,mp4',
         ]);
 
         DB::beginTransaction();
+        $img_dir = $request->file('image')->store('images', 'public');
 
         $user = User::create([
             'name' => $request->input('name'),
@@ -66,6 +69,8 @@ class UserController extends Controller
             'nationality' => $request->input('nationality'),
             'gender' => $request->input('gender'),
             'dob' => $request->input('dob'),
+            'bio' => $request->input('bio'),
+            'image' => $img_dir,
 
         ]);
         DB::commit();
@@ -80,14 +85,15 @@ class UserController extends Controller
         $valid = $request->validate([
             'name' => 'required',
             'surname' => 'required',
-            'username' => ['required', Rule::unique('users')->ignore($user)],
             'phone_number' => ['required', Rule::unique('users')->ignore($user)],
             'email' => ['required', Rule::unique('users')->ignore($user)],
             'password' => 'required|confirmed|min:8',
-            'martial_status' => 'required',
-            'nationality' => 'required',
-            'gender' => 'required',
-            'dob' => 'required',
+            'martial_status' => 'nulliable',
+            'nationality' => 'nulliable',
+            'gender' => 'nulliable',
+            'dob' => 'nulliable',
+            'bio' => 'nulliable',
+            'image' => 'nulliable|mimes:jpg,png,jpeg,mp4',
         ]);
 
         if ($request->hasFile('image')) {

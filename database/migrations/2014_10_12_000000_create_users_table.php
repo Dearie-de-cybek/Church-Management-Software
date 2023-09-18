@@ -19,12 +19,14 @@ return new class extends Migration
             $table->string('surname');
             $table->string('phone_number');
             $table->string('email')->unique();
-            $table->string('martial_status');
-            $table->string('nationality');
-            $table->string('gender');
-            $table->string('dob');
+            $table->string('martial_status')->nullable();
+            $table->string('nationality')->nullable();
+            $table->string('gender')->nullable();
+            $table->string('dob')->nullable();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
+            $table->string('bio')->nullable();
+            $table->string('image')->nullable();
             $table->rememberToken();
             $table->timestamps();
             $table->string('is_admin')->default(0);

@@ -125,6 +125,7 @@ class Apis extends Controller
     {
         $input = $request->all();
         $user = User::findOrFail($id);
+        $img_dir = $request->file('image')->store('images', 'public');
         $valid = Validator::make($request->all(),[
             'name' => 'nullable',
             'surname' => 'nullable',
@@ -136,6 +137,8 @@ class Apis extends Controller
             'nationality' => 'nullable',
             'gender' => 'nullable',
             'dob' => 'nullable',
+            'bio' => 'nullable',
+            'image' => ['nullable|mimes:jpg,png,jpeg,mp4', $img_dir],
         ]);
 
         if ($valid->fails()) {
@@ -259,6 +262,26 @@ class Apis extends Controller
         try {
             $user = auth()->user();
             $devotional = Devotional::all();
+
+            return response()->json([
+                'status' => true,
+                'message' => 'All Devotional',
+                'All Devotionals' => $devotional
+            ]);
+        } catch (\Throwable $th) {
+            return response()->json([
+                'status' => false,
+                'message' => 'Server Error',
+                'errors' => $th->getMessage()
+            ]);
+        }
+    }
+
+    public function devotionalsSunday()
+    {
+        try {
+            $user = auth()->user();
+            $devotional = Devotional::all()->where('day', 'Sunday');
 
             return response()->json([
                 'status' => true,
@@ -399,6 +422,26 @@ class Apis extends Controller
         try {
             $user = auth()->user();
             $prayers = Prayer::all();
+
+            return response()->json([
+                'status' => true,
+                'message' => 'All prayers',
+                'All Prayers' => $prayers
+            ]);
+        } catch (\Throwable $th) {
+            return response()->json([
+                'status' => false,
+                'message' => 'Server Error',
+                'errors' => $th->getMessage()
+            ]);
+        }
+    }
+
+    public function prayersSunday()
+    {
+        try {
+            $user = auth()->user();
+            $prayers = Prayer::all()->where('day', 'Sunday');
 
             return response()->json([
                 'status' => true,
