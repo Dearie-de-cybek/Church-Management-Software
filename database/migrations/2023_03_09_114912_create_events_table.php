@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('name');
             $table->string('author');
             $table->foreignIdFor(EventCategory::class);
+            $table->string('image');
             $table->dateTime('date');
             $table->timestamps();
         });

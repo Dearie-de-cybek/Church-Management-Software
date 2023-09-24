@@ -47,25 +47,19 @@ class EventController extends Controller
     public function store(Request $request)
     {
         //
-        $request->validate([
+        $valid = $request->validate([
             'name' => 'required',
             'description' => 'required',
             'event_categories' => 'required|exists:event_categories,id',
+            'image' => 'mimes:jpg,png,jpeg,mp4',
             'date' => 'required'
         ]);
+        $img_dir = $request->file('image')->store('images', 'public');
 
-        DB::beginTransaction();
+        
+        Event::create(array_merge($valid,['image' => $img_dir]));
 
-        $event = Event::create([
-            'name' => $request->input('name'),
-            'description' => $request->input('description'),
-            'event_categories' => $request->input('event_categories'),
-            'date' => $request->input('date')
-        ]);
-
-        DB::commit();
-        return redirect()->intended(route('dashboard.event.index'))->with('message', 'Payment Submitted Successfully');
-        DB::rollBack();
+        return redirect()->intended(route('dashboard.event.index'))->with('message', 'Event Submitted Successfully');
     }
 
     /**
@@ -110,11 +104,17 @@ class EventController extends Controller
                 'name' => 'required',
                 'description' => 'required',
                 'event_categories' => 'required|exists:event_categories,id',
+                'image' => 'mimes:jpg,png,jpeg,mp4',
                 'date' => 'required'
     
             ]);
 
-            $event->update(array_merge($valid));
+            if ($request->hasFile('image')) {
+                $event->update(array_merge($valid, ['image' => $request->file('image')->store('user_images', 'public')]));
+            }
+            else {
+                $event->update(array_merge($valid));
+            }
     
     
             // dd($valid);

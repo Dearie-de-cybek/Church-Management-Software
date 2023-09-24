@@ -18,6 +18,9 @@
                 <option value="{{$category->id}}">{{ $category->name}}</option>
             @endforeach
         </select>
+        
+        <label for="image" class="form-label">Image: </label>
+        <input type="file" name="image" id="image" value="Pending" class="form-control">
 
         <label for="date" class="form-label">Date: </label>
         <input type="date" name="date" id="date" value="Pending" class="form-control">

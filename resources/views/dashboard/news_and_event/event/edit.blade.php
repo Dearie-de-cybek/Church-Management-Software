@@ -18,8 +18,11 @@
             @endforeach
         </select>
 
+        <label for="image" class="form-label">Image: </label>
+        <input type="file" name="image" id="image" value="Pending" class="form-control">
+
         <label for="date" class="form-label">Date: </label>
-        <input type="date" name="date" id="date" value="Pending" class="form-control">
+        <input type="date" name="date" id="date" value="Pending" class="form-control" required>
 
         <button class="btn btn-sm btn-outline-info mt-3" type="submit">Submit</button>
     </form>
