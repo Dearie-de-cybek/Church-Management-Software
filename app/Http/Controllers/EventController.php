@@ -22,8 +22,10 @@ class EventController extends Controller
     public function index()
     {
         //
+        
+        $event_categories = EventCategory::all();
         $events = Event::all();
-        return view('dashboard.news_and_event.event.index', ['events' => $events]);
+        return view('dashboard.news_and_event.event.index', ['events' => $events], ['event_categories' => $event_categories]);
     }
 
     /**

@@ -10,6 +10,7 @@ use App\Models\Payment;
 use App\Models\Devotional;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
+use App\Models\EventCategory;
 use Illuminate\Validation\Rule;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
@@ -155,6 +156,27 @@ class Apis extends Controller
         ], 200);
     }
 
+    public function userProfile(Request $request, $id)
+    {
+        try {
+            $input = $request->all();
+            $user = auth()->user();
+            $profile = User::findOrFail($id);
+
+            return response()->json([
+                'status' => true,
+                'message' => 'All the Upcoming Profile',
+                'User profile' => $profile
+            ]);
+        } catch (\Throwable $th) {
+            return response()->json([
+                'status' => false,
+                'message' => 'Server Error',
+                'errors' => $th->getMessage()
+            ]);
+        }
+    }
+
     public function transactionHistory()
     {
         try {
@@ -174,6 +196,7 @@ class Apis extends Controller
             ]);
         }
     }
+
     public function makePayment(Request $request)
     {
         try {
@@ -208,6 +231,36 @@ class Apis extends Controller
                 'data' => $user
             ]);
 
+        } catch (\Throwable $th) {
+            return response()->json([
+                'status' => false,
+                'message' => 'Server Error',
+                'errors' => $th->getMessage()
+            ]);
+        }
+    }
+
+    public function birthdayEvent()
+    {
+        try {
+            $user = auth()->user();
+            $events = Event::all();
+            $eventCategory = EventCategory::all()->where('name', 'Birthday');
+            // $birthday = Event::all()->where('email', 'Birthday');
+            foreach ($eventCategory as $category) {
+                $id = $category->id;
+                $name = $category->name;
+            }
+            $birthday = Event::all()->where('event_categories', $id);
+            // ($event_categories as $category)
+            // {{ $category->id }} {{ $category->name }}
+        
+
+            return response()->json([
+                'status' => true,
+                'message' => 'All the Upcoming Events',
+                'All Events' => $birthday
+            ]);
         } catch (\Throwable $th) {
             return response()->json([
                 'status' => false,
