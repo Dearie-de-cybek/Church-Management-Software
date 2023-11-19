@@ -23,12 +23,6 @@ class Apis extends Controller
     //
     public function createUser(Request $request)
     {
-
-        // $validateRequest = Validator::make(
-        // $request->all(),
-        //     [
-
-        //     ]);
         try {
             $validateUser = Validator::make($request->all(),[
                 'name' => 'required',
@@ -81,6 +75,27 @@ class Apis extends Controller
         }
     }
 
+    public function allusers(Request $request)
+    {
+        try {
+            
+            $allusers = User::all();
+
+            return response()->json([
+                'status' => true,
+                'message' => 'Account Created Successfully',
+                'data' => $allusers
+            ]);
+
+        } catch (\Throwable $th) {
+            return response()->json([
+                'status' => false,
+                'message' => 'Server Error',
+                'errors' => $th->getMessage()
+            ]);
+        }
+    }
+
     public function loginUser(Request $request)
     {
 
@@ -112,6 +127,7 @@ class Apis extends Controller
             return response()->json([
                 'status' => true,
                 'message' => 'User Logged In Successfully',
+                'user' => $user,
                 'token' => $user->createToken("API TOKEN")->plainTextToken
             ], 200);
         } catch (\Throwable $th) {

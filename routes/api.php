@@ -39,7 +39,7 @@ Route::name('devotionals.')->prefix('devotionals')->group(function(){
 });
 
 Route::name('prayers.')->prefix('prayers')->group(function () {
-    Route::get('prayers', [Apis::class, 'prayers']);
+    Route::get('', [Apis::class, 'prayers']);
     Route::get('Sunday', [Apis::class, 'prayersSunday']);
     Route::get('Monday', [Apis::class, 'prayersMonday']);
     Route::get('Tuesday', [Apis::class, 'prayersTuesday']);
